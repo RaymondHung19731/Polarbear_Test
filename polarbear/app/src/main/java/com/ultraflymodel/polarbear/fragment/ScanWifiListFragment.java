@@ -135,7 +135,7 @@ public class ScanWifiListFragment extends Fragment implements View.OnClickListen
         super.onDestroyView();
     }
 
-    public boolean setSsidAndPassword(Context context, String ssid, String ssidPassword) {
+    public static boolean setSsidAndPassword(Context context, String ssid, String ssidPassword) {
         HILog.d(TAG, "setSsidAndPassword: ssid = " + ssid + ", ssidPassword = " + ssidPassword);
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService(context.WIFI_SERVICE);
@@ -173,7 +173,8 @@ public class ScanWifiListFragment extends Fragment implements View.OnClickListen
                 break;
             case R.id.btn_phonewifi:
                 HILog.d(TAG, "onClick: btn_phonewifi:");
-                mScanning = !mScanning;
+                mScanning = true;
+//                mScanning = !mScanning;
                 if(mScanning){
                     dialog_scanlist();
                     UltraflyModelApplication.getInstance().bus.post(new WifiListReset());
@@ -242,6 +243,15 @@ public class ScanWifiListFragment extends Fragment implements View.OnClickListen
             wifiUdpEvent.message = "WiFi done scanning.";
             UltraflyModelApplication.getInstance().bus.post(wifiUdpEvent);
         }
+    }
+
+    public static void user_change_to_home_router() {
+        md_diaog = new MaterialDialog.Builder(mActivity)
+                .title(R.string.app_name)
+                .content(mActivity.getString(R.string.change_to_home_router))
+                .progress(true, 0)
+                .progressIndeterminateStyle(true)
+                .show();
     }
 
     @Subscribe

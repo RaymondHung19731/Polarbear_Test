@@ -10,8 +10,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.ultraflymodel.polarbear.R;
+import com.ultraflymodel.polarbear.activity.PolarbearMainActivity;
+import com.ultraflymodel.polarbear.common.DBA;
 import com.ultraflymodel.polarbear.common.HILog;
 import com.ultraflymodel.polarbear.eventbus.WifiUdpEvent;
+import com.ultraflymodel.polarbear.fragment.ScanWifiListFragment;
 import com.ultraflymodel.polarbear.ultraflymodel.UltraflyModelApplication;
 import com.ultraflymodel.polarbear.utils.CommonUtils;
 
@@ -65,7 +68,7 @@ public class UDPNetwork
 	}
 	private static String m_LocalPort;
 
-
+	public static boolean mChangeToClient = false;
 
 
 	public void StopReceiveServer()
@@ -466,14 +469,15 @@ public class UDPNetwork
 		SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
 	}
 	
-	public  void SendVideoOn()
+	public  void SendVideoOn()   // change to send QVGA command
 	{
 //		SendVideoOff();
 		HILog.d(TAG, "SendVideoOn:");
 		ByteBuffer b = ByteBuffer.allocate(4);
 		b.order(ByteOrder.LITTLE_ENDIAN);           //WINDOWS SERVER
 		b.put((byte) 0xA0);
-		b.put((byte) 0x00);
+//		b.put((byte) 0x00);   // this is  VGA
+		b.put((byte) 0x01);  // this is QVGA
 		b.put((byte) 0x00);
 		b.put((byte) 0x00);
 		SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
@@ -537,7 +541,18 @@ public class UDPNetwork
 
 	}
 
+	public void Change2ClientMode()
+	{
+		HILog.d(TAG, "Change2ClientMode:");
+		ByteBuffer b = ByteBuffer.allocate(4);
+		b.order(ByteOrder.LITTLE_ENDIAN);
+		b.put((byte) 0xB7);
+		b.put((byte) 0x00);
+		b.put((byte) 0x00);
+		b.put((byte) 0x00);
 
+		SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
+	}
 
 	public void ChangeClientSSID(String strClientID)
 	{   		 			
@@ -971,39 +986,42 @@ public class UDPNetwork
 			 //Log.d(ConfigInfo.P2P_DEBUG_TAG, "Video Data!");
 			 mNetworkCallBack.success(P2PNatProcess.RECEIVE_VIDEO_DATA, 0,
 					 byData, iLen, LocalPort);
-		 } else
-			if(byData[0]==(byte)0xBC) //0xBC: be hitted
-			{
+		 }
+		 else if(byData[0]==(byte)0xBC) //0xBC: be hitted
+		 {
 			 mNetworkCallBack.success(P2PNatProcess.TANK_HIT, 0, byData, iLen, LocalPort);
-			} else
-			if(byData[0]==(byte)0xA6) //test...  
-			{
+		 }
+		 else if(byData[0]==(byte)0xA6) //test...
+		 {
 				//Play RingON
 				//SendAudioOn();				
 				mNetworkCallBack.success(P2PNatProcess.RING_ON, 0, null,0, LocalPort);
-			}else if(byData[0]==98) //H.264
-			{
+		 }
+		 else if(byData[0]==98) //H.264
+		 {
 				//Log.d(ConfigInfo.P2P_DEBUG_TAG, "Video Data!");
 				mNetworkCallBack.success(P2PNatProcess.RECEIVE_VIDEO_DATA, 0,
 						                 byData,iLen, LocalPort);
-			}
-			else if(byData[0]==97) //Audio
-			{   				
+		 }
+		 else if(byData[0]==97) //Audio
+		 {
 				Log.d(ConfigInfo.P2P_DEBUG_TAG, "Audio Data RECEIVE Data!");
 				
 				mNetworkCallBack.success(P2PNatProcess.RECEIVE_AUDIO_DATA, 0, 
 						                 byData,iLen, LocalPort);
 				
 				
-			}else if(byData[0]==((byte)0xAB)) //Audio
-			{   				
+		 }
+		 else if(byData[0]==((byte)0xAB)) //Audio
+		 {
 				//Log.d(ConfigInfo.P2P_DEBUG_TAG, "Audio Data RECEIVE Data!");				
 				mNetworkCallBack.success(P2PNatProcess.PICK_UP, 0,byData,iLen, LocalPort);
 //			}else if(byData[0] == (byte)0xAF)  //-81
 //			{
 //				Nofify Device Alive.
-			} else if(byData[0]==(byte)0xAC) //test...
-	        {
+		 }
+		 else if(byData[0]==(byte)0xAC) //test...
+	     {
 				if(byData[1]==(byte)0x00 && byData[2]==(byte)0xFF && byData[3]==(byte)0xFF)
 				{
 					Log.d(ConfigInfo.P2P_DEBUG_TAG,"MP3 Send Already!");
@@ -1021,19 +1039,22 @@ public class UDPNetwork
 				{
 					mNetworkCallBack.success(P2PNatProcess.MP3_PLAY_END, 0, null, 0, LocalPort);
 				}
-		    }else if(byData[0]==((byte)0xB8)) //SCAN CLIENT CALLBACK......
-	        {
+		  }
+		  else if(byData[0]==((byte)0xB8)) //SCAN CLIENT CALLBACK......
+	      {
 
-	        }
-	        else if(byData[0]==((byte)0xB9)) //SCAN CLIENT CALLBACK......
-	        {
+	      }
+	      else if(byData[0]==((byte)0xB9)) //SCAN CLIENT CALLBACK......
+	      {
 				mNetworkCallBack.success(P2PNatProcess.SCAN_LIST, 0,byData,iLen, LocalPort);
-	        }else if(byData[0]==((byte)0xAF)) //BROADCAST
-	        {
+	      }
+	      else if(byData[0]==((byte)0xAF)) //BROADCAST
+	      {
 				HILog.d(false, TAG, "UDPNetwork: BROADCAST received.");
 				mNetworkCallBack.success(P2PNatProcess.BROADCAST, 0,byData,iLen, LocalPort);
-			}else if(byData[0]==((byte)0xBF)) //WIFI_SSID
-	 		{
+		  }
+		  else if(byData[0]==((byte)0xBF)) //WIFI_SSID
+	 	  {
 				if(byData[1]==(byte)0xFF && byData[2]==(byte)0x20 && byData[3]==(byte)0x00){
 					mNetworkCallBack.success(P2PNatProcess.WIFI_SSID_OK, 0,byData,iLen, LocalPort);
 					HILog.d(false, TAG, "UDPNetwork: WIFI_SSID_OK:");
@@ -1049,6 +1070,21 @@ public class UDPNetwork
 							Looper.loop();
 						};
 					}.start();
+					int count = 0;
+//					ScanWifiListFragment.user_change_to_home_router();
+//					ScanWifiListFragment.user_change_to_home_router();
+					while((UDPNetwork.mChangeToClient == false) && (count <= 100))
+					{
+						count++;
+						Change2ClientMode();
+						for (int j = 0; j<1000; j++)
+						{;}
+					}
+					UDPNetwork.mChangeToClient = true;
+					String wifissid = PolarbearMainActivity.getSettingStringValue(DBA.Field.WIFINAME);
+					String wifipass = PolarbearMainActivity.getSettingStringValue(DBA.Field.WIFIPASSWORD);
+					ScanWifiListFragment.setSsidAndPassword(ScanWifiListFragment.mActivity, wifissid, wifipass);
+
 				} else if(byData[1]==(byte)0xFF && byData[2]==(byte)0x1B && byData[3]==(byte)0x00) {
 					mNetworkCallBack.success(P2PNatProcess.WIFI_SSID_NG, 0,byData,iLen, LocalPort);
 					HILog.d(false, TAG, "UDPNetwork: WIFI_SSID_NG:");
@@ -1078,7 +1114,20 @@ public class UDPNetwork
 				}
 
 			}
-	        else
+		 else if(byData[0]==((byte)0xB2)) // Get Client ssid name
+		 {
+//			 ScanWifiListFragment.mSsidName = true;
+		 }
+		 else if(byData[0]==((byte)0xB3)) // Get Client ssid password
+		 {
+//			 ScanWifiListFragment.mSsidPass = true;
+		 }
+		 else if(byData[0]==((byte)0xB7)) // Get Change to Client
+		 {
+			 UDPNetwork.mChangeToClient = true;
+		 }
+
+			else
 			{
 				HILog.d(false, TAG, "ProcessCommand: iCommand = 0x" + Integer.toHexString(iCommand).toUpperCase() + ", iLen = " + iLen);
 

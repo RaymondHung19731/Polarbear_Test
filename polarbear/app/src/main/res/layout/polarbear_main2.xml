@@ -68,6 +68,7 @@
             android:scaleX="2.0"
             android:scaleY="2.0"
             />
+
         <ImageButton
             android:id="@+id/ib_queryhost"
             android:layout_height="wrap_content"
@@ -75,6 +76,7 @@
             android:layout_gravity="center_horizontal|bottom|left"
             android:background="@mipmap/btn_video_n"
         />
+
         <ImageButton
         android:id="@+id/ib_demomode"
         android:layout_height="wrap_content"

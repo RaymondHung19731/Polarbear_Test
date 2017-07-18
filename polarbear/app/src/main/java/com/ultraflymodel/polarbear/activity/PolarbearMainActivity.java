@@ -177,6 +177,7 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
 
         }
         m_AudioPlayer  =  new AudioPlayer(this);
+ //       finish();
     }
 
     public static boolean CheckIfSameClassC(String ipa, String ipb){
@@ -268,7 +269,9 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
     protected void onPause(){
         HILog.d(TAG, "onPause:");
         mNotInFront = true;
+//        finishAndRemoveTask();
         super.onPause();
+//        onStop();
     }
 
     @Override
@@ -283,6 +286,7 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
         HILog.d(TAG, "onStop:");
         mNotInFront = true;
         super.onStop();
+//       finishAndRemoveTask();
     }
 
     @Override
@@ -294,6 +298,8 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
         UltraflyModelApplication.getInstance().bus.unregister(this);
         mBusRegister = false;
         mNotInFront = true;
+ //       finish();
+
     }
 
 
@@ -620,12 +626,12 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
 //                m_udpNetwork.StopReceiveServer();
 //                m_udpBC.StopReceiveServer();
 
-
+/*
                 WifiUdpEvent wifiUdpEvent = new WifiUdpEvent();
                 wifiUdpEvent.mDialog = true;
                 wifiUdpEvent.message = mActivity.getString(R.string.wifi_ssid_ok);
                 UltraflyModelApplication.getInstance().bus.post(wifiUdpEvent);
-
+*/
 
 /*
                 new Thread() {
@@ -640,7 +646,7 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
             case P2PNatProcess.WIFI_SSID_NG:
                 HILog.d(TAG, "success : WIFI_SSID_NG");
 
-                wifiUdpEvent = new WifiUdpEvent();
+                WifiUdpEvent wifiUdpEvent = new WifiUdpEvent();
                 wifiUdpEvent.mDialog = true;
                 wifiUdpEvent.message = mActivity.getString(R.string.wifi_ssid_ng);
                 UltraflyModelApplication.getInstance().bus.post(wifiUdpEvent);

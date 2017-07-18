@@ -47,7 +47,9 @@
     <string name="wifi_ssid_ok">"Home Router connection successful! Reset Mobile connection to Home Router! Press Back button to return to menu.\n"</string>
     <string name="wifi_ssid_ng">"SSID or Password mismatch! Please re-enter your Password or leave the setup dialog!\n"</string>
     <string name="ssid_startscan">"Connecting to AP!"</string>
-    <string name="ssid_ok">"Reconnect to AP OK!"</string>
+    <string name="ssid_ok">"Reconnect to AP OK!   Please connect your wifi to Your Home Router."</string>
+    <string name="wait_15s">Please wait 15 seconds for Polarbear to connect to the selected Wifi router.</string>
+    <string name="change_to_home_router">Please connect your wifi to Your Home Router.</string>
 
 </resources>
 
