@@ -891,17 +891,31 @@ V-03 = Truck
     private void GetSetCarName(int carno){
         String newcarname = getRandomName();
         toycarGroupData.get(carno).get(CAR_NAME);
-        m_udpNetwork.SendChangeCarName(newcarname);
+        for(int j=0;j<10;j++)
+        {
+            m_udpNetwork.SendChangeCarName(newcarname);
+            for (int m=0;m<100;m++)
+            {;}
+        }
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        m_udpNetwork.SendChangeCarName(newcarname);
-        toycarGroupData.get(carno).put(CAR_NAME, newcarname);
-        HILog.d(TAG, "GetSetCarName: Set DEVICE_NAME = " + newcarname);
-        mInsPolarbear.putString(ISKey.DEVICE_NAME, newcarname);
-        mInsPolarbear.save();
+//         m_udpNetwork.SendChangeCarName(newcarname);
+        for(int j=0;j<10;j++)
+        {
+            m_udpNetwork.SendChangeCarName(newcarname);
+            for (int m=0;m<100;m++)
+            {;}
+        }
+        for(int j=0;j<1;j++) {
+
+            toycarGroupData.get(carno).put(CAR_NAME, newcarname);
+            HILog.d(TAG, "GetSetCarName: Set DEVICE_NAME = " + newcarname);
+            mInsPolarbear.putString(ISKey.DEVICE_NAME, newcarname);
+            mInsPolarbear.save();
+        }
     }
 
     public void playcannonfile(){
@@ -1028,6 +1042,9 @@ V-03 = Truck
                     videoView = null;
                 }
                 String ipaddress = toycarGroupData.get(carno).get(CAR_IP);
+                m_udpNetwork.SetP2PAddress(ipaddress, Constants.CMDPORT);
+//                m_udpNetwork.StartReceviceServer();
+
                 MyTank_IP = ipaddress;
                 if(!StringUtil.isStrNullOrEmpty(MyTank_Name)){
                     m_udpNetwork.StopReceiveServer();
@@ -1042,11 +1059,33 @@ V-03 = Truck
                         e.printStackTrace();
                     }
                 }
+
+                if(timer!=null) {
+                    timer.cancel();
+                    timer.purge();
+                }
+
+                timer = new Timer(true);
+                timer.schedule(new timerTask(), 1000, 20);
+
+                HILog.d(TAG, "onClick: timer started.");
+
                 mMotorCmdSending = true;
+
+
+// remark for change name
+
+                int m=0;
                 if(!IsDeviceNamed()){
                    GetSetCarName(carno);
+//                    for(m=0;m<1000;m++)
+//                    {;}
                 }
+
                 ClearAllCarOwner();
+//                for(m=0;m<1000;m++)
+//                {;}
+
                 toycarGroupData.get(carno).put(CAR_OWNER, Constants.OWNER_ME);
                 carname = toycarGroupData.get(carno).get(CAR_NAME);
                 mInsPolarbear.putString(ISKey.DEVICE_NAME, carname);
@@ -1067,10 +1106,17 @@ V-03 = Truck
                     timer.cancel();
                     timer.purge();
                 }
+
                 timer = new Timer(true);
                 timer.schedule(new timerTask(), 1000, 20);
                 HILog.d(TAG, "onClick: timer started.");
+                for(m=0;m<1000;m++)
+                {;}
+
                 mMotorCmdSending = true;
+                for(m=0;m<1000;m++)
+                {;}
+
                 mAmIOwnTheCar = carno;
                 QueryHostInThread(ipaddress);
 //                m_QueryCarHandler.postDelayed(m_QueryCarTimeoutTask, Constants.QUERYCAR_TIMEOUT);
@@ -1126,7 +1172,10 @@ V-03 = Truck
             case R.id.ib_queryhost:
                 mEnable_Fps = false;
                 mFps = 0;
-                mQVGA = true;
+                mQVGA = false;
+//                ipaddress = toycarGroupData.get(carno).get(CAR_IP);
+//                m_udpNetwork.SetP2PAddress(MyTank_IP, Constants.CMDPORT);
+
                 HILog.d(TAG, "onClick: ib_queryhost: mEnable_Fps = " + mEnable_Fps);
                 mFlageVideo = !mFlageVideo;
                 if(!m_Demomode) ShowFireArms(mFlageVideo);
@@ -1136,7 +1185,10 @@ V-03 = Truck
                 HILog.d(TAG, "onClick: ibRecorder: mEnable_Fps = " + mEnable_Fps);
                 mEnable_Fps = false;
                 mFps = 0;
-                mQVGA = false;
+                mQVGA = true;
+//                ipaddress = toycarGroupData.get(carno).get(CAR_IP);
+//                m_udpNetwork.SetP2PAddress(MyTank_IP, Constants.CMDPORT);
+
                 mFlageVideo = !mFlageVideo;
                 if(!m_Demomode) ShowFireArms(mFlageVideo);
                 onPlay();
