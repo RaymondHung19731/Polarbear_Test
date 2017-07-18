@@ -1043,7 +1043,7 @@ V-03 = Truck
                 }
                 String ipaddress = toycarGroupData.get(carno).get(CAR_IP);
                 m_udpNetwork.SetP2PAddress(ipaddress, Constants.CMDPORT);
-//                m_udpNetwork.StartReceviceServer();
+                m_udpNetwork.StartReceviceServer();
 
                 MyTank_IP = ipaddress;
                 if(!StringUtil.isStrNullOrEmpty(MyTank_Name)){
