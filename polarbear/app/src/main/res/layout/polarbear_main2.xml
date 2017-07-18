@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ultraflymodel.polarbear.activity.PolarbearMainActivity">
+
+
+
+
+    <ImageView
+        android:id="@+id/ivBG"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_metalpattern"
+        android:scaleType="fitXY"/>
+
+    <TextureView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/textureViewVideo"
+        android:visibility="gone"
+        />
+
+    <org.problemloeser.cta.mjpegplayer.MjpegView
+        android:id="@+id/videoView1"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </org.problemloeser.cta.mjpegplayer.MjpegView>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/iv_crosshair"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@mipmap/pic_crosshair"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            />
+        <ImageButton
+            android:id="@+id/ib_fireshot"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_btn_fireshot"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="@dimen/fireshot_marginRight"
+            android:layout_marginTop="@dimen/fireshot_marginTop"
+            android:scaleX="2.0"
+            android:scaleY="2.0"
+            android:visibility="invisible"
+            />
+        <ImageButton
+            android:id="@+id/ib_fireshot_demo"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/selector_btn_fireshot"
+            android:layout_gravity="center|bottom"
+            android:visibility="invisible"
+            android:scaleX="2.0"
+            android:scaleY="2.0"
+            />
+        <ImageButton
+            android:id="@+id/ib_queryhost"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal|bottom|left"
+            android:background="@mipmap/btn_video_n"
+        />
+        <ImageButton
+        android:id="@+id/ib_demomode"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@drawable/selector_btn_demomode"
+        android:layout_gravity="center_horizontal|bottom"
+        android:visibility="invisible"
+        />
+        <ImageButton
+            android:id="@+id/ib_fps"
+            android:layout_height="70dp"
+            android:layout_width="70dp"
+            android:background="@null"
+            android:layout_gravity="center_horizontal|bottom|right"
+            android:visibility="visible"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="18"
+                android:background="@null"
+                />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="88"
+                >
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@null"
+                    >
+                    <View
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="18"/>
+
+                    <ImageButton
+                        android:id="@+id/ibLife"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="78"
+                        android:background="@mipmap/btn_hurt_n"
+                        />
+                    <LinearLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="80"
+                        android:orientation="vertical"
+                        >
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:background="@null"
+                            />
+                        <LinearLayout
+                            android:id="@+id/ll_hp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="6"
+                            android:orientation="horizontal"
+                            >
+                            <ImageButton
+                                android:id="@+id/ib_hp_1"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                            <ImageButton
+                                android:id="@+id/ib_hp_2"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                            <ImageButton
+                                android:id="@+id/ib_hp_3"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                            <ImageButton
+                                android:id="@+id/ib_hp_4"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                            <ImageButton
+                                android:id="@+id/ib_hp_5"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                            <ImageButton
+                                android:id="@+id/ib_hp_6"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                            <ImageButton
+                                android:id="@+id/ib_hp_7"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                            <ImageButton
+                                android:id="@+id/ib_hp_8"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                            <ImageButton
+                                android:id="@+id/ib_hp_9"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="16"
+                                android:background="@mipmap/ic_hp_n"
+                                />
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:background="@null"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_hp"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="72"
+                        android:gravity="center"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="@dimen/default_margin_large2"
+                        android:text="00"
+                        android:typeface="sans" />
+                    <ImageButton
+                        android:id="@+id/ibRecorder"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="78"
+                        android:background="@mipmap/btn_video_n"
+                        />
+                    <LinearLayout
+                        android:id="@+id/ll_carlist"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="390"
+                        android:orientation="horizontal"
+                        >
+                        <ImageButton
+                            android:id="@+id/ibCar_1"
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="78"
+                            android:background="@mipmap/btn_t01_n"
+                            android:layout_margin="2dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/ibCar_2"
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="78"
+                            android:background="@mipmap/btn_t02_n"
+                            android:layout_margin="2dp"
+                            android:visibility="invisible"
+                            />
+                        <ImageButton
+                            android:id="@+id/ibCar_3"
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="78"
+                            android:background="@mipmap/btn_v01_n"
+                            android:layout_margin="2dp"
+                            android:visibility="invisible"
+                            />
+                        <ImageButton
+                            android:id="@+id/ibCar_4"
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="78"
+                            android:background="@mipmap/btn_v02_n"
+                            android:layout_margin="2dp"
+                            android:visibility="invisible"
+                            />
+                        <ImageButton
+                            android:id="@+id/ibCar_5"
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="78"
+                            android:background="@mipmap/btn_v03_n"
+                            android:layout_margin="2dp"
+                            android:visibility="invisible"
+                            />
+                    </LinearLayout>
+                    <View
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="13"/>
+                    <ImageButton
+                        android:id="@+id/ibClock"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="78"
+                        android:background="@mipmap/btn_countdowntimer_n"
+                        />
+                    <TextView
+                        android:id="@+id/tv_clock"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="121"
+                        android:gravity="center"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/clock_font_size"
+                        android:typeface="sans"
+                        android:text="00:00"
+                        />
+                    <ImageButton
+                        android:id="@+id/ibSettings"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="78"
+                        android:background="@mipmap/btn_setting_n"
+                        />
+                    <View
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="18"/>
+
+                </LinearLayout>
+            </FrameLayout>
+
+
+            <LinearLayout
+				android:id="@+id/ll_hitpoint"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="88"
+                android:orientation="horizontal"
+                android:background="@null"
+                >
+                <View
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="18"/>
+
+                <ImageButton
+                    android:id="@+id/ibHitpoint"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="78"
+                    android:background="@mipmap/btn_hitpoint_n"
+                    />
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="72"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/default_margin_large2"
+                    android:typeface="sans"
+                    android:text="00"
+                    android:id="@+id/tv_winner" />
+                <View
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="78"/>
+                <View
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="778"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="33"
+                android:background="@null"
+                />
+            <RelativeLayout
+				android:id="@+id/rl_channel6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="93">
+
+                <ImageButton
+                    android:id="@+id/ibLeft"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="18dp"
+                    android:scaleType="fitCenter"
+                    android:background="@mipmap/btn_left_n" />
+
+                <ImageButton
+                    android:id="@+id/ibRight"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="fitCenter"
+                    android:layout_marginRight="18dp"
+                    android:background="@mipmap/btn_right_n" />
+
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="33"
+                android:background="@null"
+                />
+            <LinearLayout
+				android:id="@+id/ll_seekbars"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="330"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="48"/>
+
+                <RelativeLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="75"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="76dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/bg_wheelcontroller"/>
+
+                    <android.widget.VerticalSeekBar
+                        android:id="@+id/seekBarLeft"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="20dp"
+                        android:progressDrawable="@drawable/styled_progress"
+                        android:thumb="@mipmap/btn_leftwheel_n"
+                        android:visibility="visible"/>
+
+                </RelativeLayout>
+                <View
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_ch4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/bg_slider"/>
+
+
+                    <android.widget.VerticalSeekBar
+                        android:id="@+id/seekBar_ch4"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="10dp"
+                        android:progressDrawable="@drawable/styled_progress"
+                        android:thumb="@drawable/btn_controller"
+                        android:visibility="visible"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_height="273dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="543.89"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_ch5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/bg_slider"/>
+
+
+                    <android.widget.VerticalSeekBar
+                        android:id="@+id/seekBar_ch5"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="10dp"
+                        android:progressDrawable="@drawable/styled_progress"
+                        android:thumb="@drawable/btn_controller"
+                        android:visibility="visible"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="9"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_ch3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75"
+                    android:gravity="center">
+
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/bg_slider"/>
+
+
+                    <android.widget.VerticalSeekBar
+                        android:id="@+id/seekBar_ch3"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="10dp"
+                        android:progressDrawable="@drawable/styled_progress"
+                        android:thumb="@drawable/btn_controller"
+                        android:visibility="visible"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="76dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/bg_wheelcontroller"/>
+
+                    <android.widget.VerticalSeekBar
+                        android:id="@+id/seekBarRight"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="20dp"
+                        android:progressDrawable="@drawable/styled_progress"
+                        android:thumb="@mipmap/btn_rightwheel_n"
+                        android:visibility="visible"
+                        />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="48"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="85"
+                android:background="@null"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_injured"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:background="@mipmap/bg_injured"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            />
+    </FrameLayout>
+
+
+    <!--<android.android.widget.VerticalSeekBar_Reverse-->
+    <!--android:id="@+id/seekbar_reverse"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="150dip"-->
+    <!--android:layout_marginRight="30dip"-->
+    <!--/>-->
+
+    <!--<TextView  android:id="@+id/reverse_sb_progresstext"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/seekbar_reverse"-->
+    <!--android:gravity="center"/>-->
+
+    <!--<android.android.widget.VerticalSeekBar android:id="@+id/vertical_Seekbar"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="150dip"-->
+    <!--android:layout_toRightOf="@+id/seekbar_reverse"/>-->
+
+    <!--<TextView  android:id="@+id/vertical_sb_progresstext"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_toRightOf="@+id/seekbar_reverse"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_below="@+id/vertical_Seekbar"/>-->
+
+    <!-- -->
+
+</RelativeLayout>

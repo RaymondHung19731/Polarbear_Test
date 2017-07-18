@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Polarbear</string>
+    <string name="powered_by">Powered by Ultraflymodel.</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="babycare_revision">Revision: </string>
+    <string name="babycare_revision_value">1.0.0.A06</string>
+    <string name="babycare_company">Designed By:</string>
+    <string name="babycare_company_value">Ultraflymodel Corp.</string>
+    <string name="babycare_contactus">Contact us:</string>
+    <string name="babycare_contactus_value">help@ultraflymodel.tw</string>
+    <string name="ula_title">License terms:</string>
+    <string name="privacy_title">Privacy Policy:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="music_smart_phone">Music in your smart phone</string>
+    <string name="play_list">Play list</string>
+    <string name="cantreadfolder">Cannot read folder due to permissions</string>
+    <string name="cantopenfile">Cannot open this file</string>
+    <string name="copiedtoclipboard">Copied to clipboard.</string>
+    <string name="shortcutcreated">Shortcut created.</string>
+    <string name="error">Error</string>
+    <string name="files">" Files"</string>
+    <string name="search">Searching MP3 in </string>
+    <string name="itcouldntbefound">No MP3 file could be found in SD card.</string>
+    <string name="swipetoselect">"Swipe to Select"</string>
+    <string name="swipetoremove">"Swipe to Remove"</string>
+    <string name="password">"Password"</string>
+    <string name="wifi_you_connect">"Wifi you connect"</string>
+    <string name="choose_wifi">"Choose Wifi"</string>
+    <string name="ok">"OK"</string>
+    <string name="baby_wakeup_music">"Baby wake up music"</string>
+    <string name="search_sdcard">"Search this SD card folder?"</string>
+    <string name="broadcasting">"Broadcasting to find the Polarbears..."</string>
+    <string name="starting_ip_to_broadcasting">"Please input starting ip for broadcasting:"</string>
+    <string name="my_copperhead_ip">"192.168.15.1"</string>
+    <string name="wifi_scanning">"Scanning Wifi AP now..."</string>
+    <string name="found_ip">"Found one recent used Copperhead ip..."</string>
+    <string name="not_found_ip">"No recent used Copperhead and full scanning now ..."</string>
+
+    <string name="wifi_connection">"Wi-Fi Connection"</string>
+    <string name="period_to_countdown">"Please input time period (mm) to countdown:"</string>
+    <string name="default_period">"01"</string>
+    <string name="you_are_winner">"You are Winner!"</string>
+    <string name="you_loose">"You loose!"</string>
+    <string name="wifi_ssid_ok">"Home Router connection successful! Reset Mobile connection to Home Router! Press Back button to return to menu.\n"</string>
+    <string name="wifi_ssid_ng">"SSID or Password mismatch! Please re-enter your Password or leave the setup dialog!\n"</string>
+    <string name="ssid_startscan">"Connecting to AP!"</string>
+    <string name="ssid_ok">"Reconnect to AP OK!"</string>
+
+</resources>
+

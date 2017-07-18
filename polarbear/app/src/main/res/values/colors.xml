@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_main_icon_bg">#80000000</color>
+    <color name="base_style1_background">@android:color/white</color>
+    <color name="base_style2_background">@android:color/black</color>
+    <color name="drawer_style1_background">#c9c9cb</color>
+    <color name="drawer_title_background">#bfb6b1</color>
+    <color name="base_style3_background">#efeaec</color><!-- 淺灰 -->
+    <color name="base_style4_background">#c9cacb</color><!-- 中灰 -->
+    <color name="base_style5_background">#ff526F35</color><!-- 墨綠 -->
+    <color name="progress_background">#8C000000</color>
+    <color name="text_style1">@android:color/white</color>
+    <color name="text_style2">@android:color/black</color>
+    <color name="text_style3">#858585</color><!-- 深灰 -->
+    <color name="text_style4">#67A6DE</color><!-- 藍 -->
+    <color name="text_style5">#FF0000</color><!-- 紅 -->
+    <color name="text_style6">#EE6500</color><!-- 橘 -->
+    <color name="text_style7">#feec9d</color><!-- 黃 -->
+    <color name="text_style8">#ffee99</color><!-- 金 -->
+    <color name="text_style9">#f7b44e</color><!-- 橘 -->
+    <color name="text_style10">#00A6E1</color><!-- 深藍 -->
+    <color name="text_style11">#A7A7A8</color><!-- 中灰 -->
+    <!-- ligth theme -->
+    <color name="light_bookmark_bg">#fbfbfb</color>
+    <color name="light_color_primary">#e0e0e0</color>
+    <color name="light_color_primaryDark">#212121</color>
+    <color name="holo_light_window_background">#F0F0F0</color>
+    <color name="gray">#aaa</color>
+
+    <!-- dark theme -->
+    <color name="dark_bookmark_bg">#333333</color>
+    <color name="dark_color_primary">#131313</color>
+    <color name="dark_color_primaryDark">#090909</color>
+    <color name="holo_dark_window_background">#222222</color>
+
+    <color name="bc_normal_bg">#f9d4ee</color>
+    <color name="bc_active_bg">#feb7ea</color>
+    <color name="bc_text_fg">#00ccff</color>
+</resources>

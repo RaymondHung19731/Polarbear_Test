@@ -1,0 +1,85 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="default_margin_padding">20dp</dimen>
+    <dimen name="dialog5_margin">20dp</dimen>
+    <dimen name="dialog5_margin_right">15dp</dimen>
+    <dimen name="scrollview_padding_right">6dp</dimen>
+    <dimen name="default_margin_small">5dp</dimen>
+    <dimen name="default_margin_mid">10dp</dimen>
+    <dimen name="default_margin_mid2">15dp</dimen>
+    <dimen name="default_margin_large25">25dp</dimen>
+    <dimen name="default_margin_large">30dp</dimen>
+    <dimen name="default_margin_large2">30dp</dimen>
+    <dimen name="clock_font_size">25dp</dimen>
+    <dimen name="default_padding_mid">10dp</dimen>
+    <dimen name="default_margin_xlarge">70dp</dimen>
+    <dimen name="default_margin_xxlarge">80dp</dimen>
+    <dimen name="default_margin_xxxlarge">90dp</dimen>
+    <dimen name="default_margin_superlarge">150dp</dimen>
+    <dimen name="text_indent">10dp</dimen>
+    <dimen name="size_text_tiny">7sp</dimen>
+    <dimen name="size_text_small">15sp</dimen>
+    <dimen name="size_text_xsmall">12sp</dimen>
+    <dimen name="size_text_navi">17sp</dimen>
+    <dimen name="size_text_medium">20sp</dimen>
+    <dimen name="size_text_large">25sp</dimen>
+    <dimen name="button_1parts_bw">113dp</dimen>
+    <dimen name="button_1parts_bh">47dp</dimen>
+    <dimen name="qr11_both_sides">15dp</dimen>
+    <dimen name="dialog_context_padding">15dp</dimen>
+    <dimen name="button_inteval">15dp</dimen>
+    <dimen name="layout_element_base_interval">10dp</dimen>
+
+    <!-- member -->
+    <dimen name="changepw_text">17sp</dimen>
+    <dimen name="changepw_btn_textsize">16sp</dimen>
+    <dimen name="changepw_edit">30dp</dimen>
+    <dimen name="changepw_margin_range">10dp</dimen>
+    <dimen name="member_title">20sp</dimen>
+    <dimen name="account_info_fram_range">25dp</dimen>
+    <dimen name="account_info_fram_rangeupdown">60dp</dimen>
+    <dimen name="editprofile_ll_margin_range">10dp</dimen>
+    <dimen name="editprofile_edtext_height">30dp</dimen>
+    <dimen name="traffic_ll_margin">20dp</dimen>
+    <dimen name="prddetail_item_margin">20dp</dimen>
+    <dimen name="prddetail_item_pading_v">15dp</dimen>
+    <dimen name="prddetail_item_pading_h">5dp</dimen>
+    <dimen name="prddetail_item_pading_ph">10dp</dimen>
+
+    <!-- member -->
+    <dimen name="creditcard_number_eitsize">14sp</dimen>
+    <dimen name="search_number_eitsize">10sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- list item height -->
+    <dimen name="nav_height">48dp</dimen>
+
+    <!-- list item height -->
+    <dimen name="item_height">60dp</dimen>
+
+    <!-- list item icon padding -->
+    <dimen name="item_icon_padding">10dp</dimen>
+
+    <!-- list item default padding -->
+    <dimen name="item_default_padding">8dp</dimen>
+
+    <!-- bookmark item height -->
+    <dimen name="bookmark_height">50dp</dimen>
+
+    <!-- Navigation drawer width -->
+    <dimen name="drawer_width">240dp</dimen>
+
+    <!-- drawer menu item height -->
+    <dimen name="drawer_menu_item_height">50dp</dimen>
+
+    <!-- properties container height -->
+    <dimen name="container_height">265dp</dimen>
+    <dimen name="clock_huge">24dp</dimen>
+    <dimen name="clock_small">16dp</dimen>
+
+    <dimen name="fireshot_marginRight">100dp</dimen>
+    <dimen name="fireshot_marginTop">60dp</dimen>
+
+</resources>
