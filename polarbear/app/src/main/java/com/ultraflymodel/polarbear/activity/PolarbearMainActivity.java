@@ -279,6 +279,7 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
         HILog.d(TAG, "onResume:");
         super.onResume();
         m_udpNetwork.mNetworkCallBack = this;
+        PolarbearMainFragment.toycarGroupData.clear();
     }
 
     @Override

@@ -287,7 +287,7 @@ public class PolarbearMainFragment extends Fragment implements View.OnClickListe
     private final String CAR_STATUS = "STATUS";
     private final String CAR_TYPE = "TYPE";
     private final String CAR_ALIVE = "ALIVE";
-    private static ArrayList<HashMap<String, String>> toycarGroupData = new ArrayList<HashMap<String, String>>();
+    public static ArrayList<HashMap<String, String>> toycarGroupData = new ArrayList<HashMap<String, String>>();
     private static boolean mMotorCmdSending = false;
 
     private String MyTank_Name = null;
