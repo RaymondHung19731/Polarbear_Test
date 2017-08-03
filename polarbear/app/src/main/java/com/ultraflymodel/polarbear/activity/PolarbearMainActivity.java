@@ -148,6 +148,8 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
 
         wm = (WifiManager) getSystemService(WIFI_SERVICE);
 
+//        wm.createWifiLock()
+
 //        Settings settings = new Settings();
 //        settings.save();
         myIPAddress = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
@@ -280,6 +282,7 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
         super.onResume();
         m_udpNetwork.mNetworkCallBack = this;
         PolarbearMainFragment.toycarGroupData.clear();
+        UDPNetwork.mChangeToClient = false;
     }
 
     @Override

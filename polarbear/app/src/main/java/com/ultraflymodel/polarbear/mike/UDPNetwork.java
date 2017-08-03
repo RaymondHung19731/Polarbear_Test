@@ -1098,6 +1098,7 @@ public class UDPNetwork
 				} else if(byData[1]==(byte)0xFF && byData[2]==(byte)0x12 && byData[3]==(byte)0x00) {
 					mNetworkCallBack.success(P2PNatProcess.WIFI_SSID_STARTSCAN, 0,byData,iLen, LocalPort);
 					HILog.d(false, TAG, "UDPNetwork: WIFI_SSID_STARTSCAN:");
+					UDPNetwork.mChangeToClient = false;
 					WifiUdpEvent wifiUdpEvent = new WifiUdpEvent();
 					wifiUdpEvent.mDialog = false;
 					wifiUdpEvent.message = m_context.getString(R.string.ssid_startscan);
