@@ -1057,4 +1057,24 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
         UltraflyModelApplication.getInstance().bus.post(endMp3Event);
         mIsPlaying = false;
     }
+
+ /*
+    public void check_wifi_run()
+    {
+        while(true)
+        {
+            if (wm.isWifiEnabled())
+            {
+                String ssid_name = wm.getConnectionInfo().getSSID();
+                String TT = "T-01";
+                if ((ssid_name.compareTo(TT)) == 0) {
+
+                    ssid_name = ssid_name;
+                }
+                wm.reconnect();
+
+            }
+        }
+    }
+*/
 }

@@ -1071,16 +1071,20 @@ public class UDPNetwork
 						};
 					}.start();
 					int count = 0;
+
 //					ScanWifiListFragment.user_change_to_home_router();
 //					ScanWifiListFragment.user_change_to_home_router();
+//					PolarbearMainActivity.wm.reconnect();
 					while((UDPNetwork.mChangeToClient == false) && (count <= 100))
 					{
+						PolarbearMainActivity.wm.reconnect();
+
 						count++;
 						Change2ClientMode();
 						for (int j = 0; j<1000; j++)
 						{;}
 					}
-					UDPNetwork.mChangeToClient = true;
+//					UDPNetwork.mChangeToClient = true;
 					String wifissid = PolarbearMainActivity.getSettingStringValue(DBA.Field.WIFINAME);
 					String wifipass = PolarbearMainActivity.getSettingStringValue(DBA.Field.WIFIPASSWORD);
 					ScanWifiListFragment.setSsidAndPassword(ScanWifiListFragment.mActivity, wifissid, wifipass);
@@ -1110,6 +1114,8 @@ public class UDPNetwork
 							Looper.loop();
 						};
 					}.start();
+
+					PolarbearMainActivity.wm.reconnect();
 				} else {
 					Log.d(ConfigInfo.P2P_DEBUG_TAG, "0xBF: UnKnow UDP RECEIVE Data!");
 				}
