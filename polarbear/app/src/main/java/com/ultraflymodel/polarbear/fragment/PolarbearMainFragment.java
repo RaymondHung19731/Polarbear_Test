@@ -505,6 +505,13 @@ V-03 = Truck
             ib_demomode.performClick();
         } else {
             ShowOnlySettting();
+  /*
+            Bundle bundle = new Bundle();
+            ScanWifiListFragment scanWifiListFragment = new ScanWifiListFragment();
+            scanWifiListFragment.setArguments(bundle);
+            BaseActivity.loadFragment(scanWifiListFragment, Constants.JumpTo.WIFISETUP.toString(), true);
+            BaseActivity.setPopBackName(Constants.JumpTo.WIFISETUP.toString());
+       */
         }
         ib_demomode.setVisibility(View.INVISIBLE);
 //        ShowAllControls();

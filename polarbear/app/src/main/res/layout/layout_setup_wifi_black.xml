@@ -67,7 +67,7 @@
             android:id="@+id/fl_wifilist_container"
             android:layout_height="match_parent"
             android:layout_width="0dp"
-            android:layout_weight="480"
+            android:layout_weight="40"
             android:background="#55000000"
             />
         <View
@@ -102,7 +102,7 @@
                     android:layout_weight="60"
                     android:background="@mipmap/ic_wifi"
                     />
-                <TextView
+                <EditText
                     android:id="@+id/tv_wifi_you_connect"
                     android:layout_height="match_parent"
                     android:layout_width="0dp"

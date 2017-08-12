@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -39,6 +40,7 @@ import com.ultraflymodel.polarbear.eventbus.UdpScanListEvent;
 import com.ultraflymodel.polarbear.eventbus.WifiUdpEvent;
 import com.ultraflymodel.polarbear.eventbus.WinnerEvent;
 import com.ultraflymodel.polarbear.fragment.PolarbearMainFragment;
+import com.ultraflymodel.polarbear.fragment.ScanWifiListFragment;
 import com.ultraflymodel.polarbear.mike.AudioPlayer;
 import com.ultraflymodel.polarbear.mike.NetworkCallback;
 import com.ultraflymodel.polarbear.mike.P2PNatProcess;
@@ -147,7 +149,18 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
         m_time_handler.postDelayed(m_time_restore_orientation_task,  50);
 
         wm = (WifiManager) getSystemService(WIFI_SERVICE);
-
+/*
+        int ret = main_checkWiFi();
+        if (ret == -1)
+        {
+// direct enter setup page
+            Bundle bundle = new Bundle();
+            ScanWifiListFragment scanWifiListFragment = new ScanWifiListFragment();
+            scanWifiListFragment.setArguments(bundle);
+            BaseActivity.loadFragment(scanWifiListFragment, Constants.JumpTo.WIFISETUP.toString(), true);
+            BaseActivity.setPopBackName(Constants.JumpTo.WIFISETUP.toString());
+        }
+*/
 //        wm.createWifiLock()
 
 //        Settings settings = new Settings();
@@ -1056,6 +1069,36 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
         endMp3Event.remote = false;
         UltraflyModelApplication.getInstance().bus.post(endMp3Event);
         mIsPlaying = false;
+    }
+
+
+    private int main_checkWiFi() {
+//        wifiMgr = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+//        wifiInf = PolarbearMainActivity.wm.getConnectionInfo();
+        Log.d("MRVL", "In checkWiFi");
+        try {
+            if (PolarbearMainActivity.wm.isWifiEnabled() == false) {
+ //               mMessages = "WiFi not enabled. Please enable WiFi and connect to the home network.\n";
+ //               tv_messages.clearComposingText();
+ //               tv_messages.setText(mMessages);
+                //               TxtDebug.setText("WiFi not enabled. Please enable WiFi and connect to the home network.");
+                return -1;
+            } else if (PolarbearMainActivity.wm.getConnectionInfo().getSSID().length() == 0) {
+                //               TxtDebug.setText("WiFi is enabled but device is not connected to any network.");
+  //              mMessages = "WiFi is enabled but device is not connected to any network.\n";
+  //              tv_messages.clearComposingText();
+  //              tv_messages.setText(mMessages);
+
+                return -1;
+            }
+        } catch (NullPointerException e) {
+            //          TxtDebug.setText("WiFi is enabled but device is not connected to any network.");
+        }
+
+        //     EditSSID.setText(wifiMgr.getConnectionInfo().getSSID());
+        //    EditPass.setText(getPassphrase(EditSSID.getText().toString()));
+        //   BtnStartStop.setEnabled(true);
+        return 0;
     }
 
  /*
