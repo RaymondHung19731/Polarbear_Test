@@ -45,7 +45,7 @@ public class UDPNetwork
 	boolean      m_bDataReceive;
 	boolean      m_bDataReceiveAck;
 	public NetworkCallback    mNetworkCallBack;
-	Context m_context;
+	static Context m_context;
 
 
 	private Object m_Commandlock = new Object();
@@ -956,7 +956,18 @@ public class UDPNetwork
 		 
 		 SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);		
 	 }
-	 
+
+	 public static void PopUnderVoltage()
+	 {
+		 new Thread() {
+			 public void run() {
+				 Looper.prepare();
+				 Toast.makeText(m_context, R.string.under_voltage, Toast.LENGTH_SHORT).show();
+				 Looper.loop();
+			 };
+		 }.start();
+	 }
+
      void ProcessCommand(byte[]  byData, int iLen , String LocalPort)
 	 {
 		 int iCommand = CommonUtils.unsignedToBytes(byData[0]);

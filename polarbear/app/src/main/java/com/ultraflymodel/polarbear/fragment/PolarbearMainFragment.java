@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
@@ -27,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.Toast;
 import android.widget.TextView;
 import android.widget.VerticalSeekBar;
 
@@ -287,6 +289,7 @@ public class PolarbearMainFragment extends Fragment implements View.OnClickListe
     private final String CAR_STATUS = "STATUS";
     private final String CAR_TYPE = "TYPE";
     private final String CAR_ALIVE = "ALIVE";
+    private final String CAR_BATTERY = "4000";
     public static ArrayList<HashMap<String, String>> toycarGroupData = new ArrayList<HashMap<String, String>>();
     private static boolean mMotorCmdSending = false;
 
@@ -1553,15 +1556,18 @@ V-03 = Truck
                     HILog.d(true, TAG, "UdpEventHandler: BROADCAST: strbyData = " + strbyData);
 
                     final String[]  strDevice = strbyData.split(";");
-                    if(strDevice.length!=4) break;
+//                    if(strDevice.length!=4) break;
+                    if(strDevice.length!=5) break;
                     final int carno = IsThisCarInList(strDevice[1]);
                     String status = strDevice[3];
+                    String Battery = strDevice[4];
                     if(carno>=0){
                         toycarGroupData.get(carno).put(CAR_NAME, strDevice[0]);
                         toycarGroupData.get(carno).put(CAR_IP, strDevice[1]);
                         toycarGroupData.get(carno).put(CAR_TYPE, strDevice[2]);
                         toycarGroupData.get(carno).put(CAR_STATUS, status);
                         toycarGroupData.get(carno).put(CAR_ALIVE, String.valueOf(true));
+                        toycarGroupData.get(carno).put(CAR_BATTERY, Battery);
                     } else {
                         HashMap<String, String> newToycarData = new HashMap<String, String>();
                         newToycarData.put(CAR_NAME, strDevice[0]);
@@ -1621,12 +1627,23 @@ V-03 = Truck
 
     private void ShowOneCar(int id, ImageButton theCar){
         int resid = R.mipmap.btn_t01_n;
+        Context m_context;
+
         if(id>=toycarGroupData.size()) return;
 
         String status = toycarGroupData.get(id).get(CAR_STATUS);
         String owner = toycarGroupData.get(id).get(CAR_OWNER);
         String cartype = toycarGroupData.get(id).get(CAR_TYPE);
-        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype);
+        String battery_string = toycarGroupData.get(id).get(CAR_BATTERY);
+//        String battery_string = "2000";
+        int battery_int;
+        if (battery_string == null) {
+            battery_int=4000;
+        }
+        else {
+            battery_int = Integer.valueOf(battery_string);
+        }
+            HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype);
         int whichcar = getCarType(cartype);
         switch (whichcar){
             case 0:
@@ -1635,6 +1652,12 @@ V-03 = Truck
                     resid = R.mipmap.btn_t01_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_t0102_h;
+                    if (battery_int<3000) {
+                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
+                        UDPNetwork.PopUnderVoltage();
+
+                    }
+
                 } else {
                     resid = R.mipmap.btn_t0102_d;
                 }
@@ -1645,6 +1668,12 @@ V-03 = Truck
                     resid = R.mipmap.btn_t02_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_t0102_h;
+                    if (battery_int<3000) {
+                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
+                        UDPNetwork.PopUnderVoltage();
+
+                    }
+
                 } else {
                     resid = R.mipmap.btn_t0102_d;
                 }
@@ -1655,6 +1684,12 @@ V-03 = Truck
                     resid = R.mipmap.btn_v01_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_v01_h;
+                    if (battery_int<3000) {
+                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
+                        UDPNetwork.PopUnderVoltage();
+
+                    }
+
                 } else {
                     resid = R.mipmap.btn_v01_d;
                 }
@@ -1665,6 +1700,12 @@ V-03 = Truck
                     resid = R.mipmap.btn_v02_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_v02_h;
+                    if (battery_int<3000) {
+                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
+                        UDPNetwork.PopUnderVoltage();
+
+                    }
+
                 } else {
                     resid = R.mipmap.btn_v02_d;
                 }
@@ -1675,6 +1716,12 @@ V-03 = Truck
                     resid = R.mipmap.btn_v03_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_v03_h;
+                    if (battery_int<3000) {
+                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
+                        UDPNetwork.PopUnderVoltage();
+
+                    }
+
                 } else {
                     resid = R.mipmap.btn_v03_d;
                 }
