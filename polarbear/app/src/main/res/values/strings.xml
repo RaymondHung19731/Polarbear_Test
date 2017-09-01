@@ -50,7 +50,7 @@
     <string name="ssid_ok">"Reconnect to AP OK!   Please connect your wifi to Your Home Router."</string>
     <string name="wait_15s">Please wait 15 seconds for Polarbear to connect to the selected Wifi router.</string>
     <string name="change_to_home_router">Please connect your wifi to Your Home Router.</string>
-    <string name="under_voltage">Under Voltage. Please Recharge Your Battery.</string>
+    <string name="under_voltage">Battery Voltage is too Low. Please Recharge Your Battery.</string>
 
 </resources>
 

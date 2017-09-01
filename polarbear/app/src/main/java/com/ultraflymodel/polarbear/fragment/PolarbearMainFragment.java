@@ -1641,7 +1641,13 @@ V-03 = Truck
             battery_int=4000;
         }
         else {
-            battery_int = Integer.valueOf(battery_string);
+            if(owner.equals(Constants.OWNER_ME)) {
+                battery_int = Integer.valueOf(battery_string);
+            }
+            else
+            {
+                battery_int=4000;
+            }
         }
             HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype);
         int whichcar = getCarType(cartype);
