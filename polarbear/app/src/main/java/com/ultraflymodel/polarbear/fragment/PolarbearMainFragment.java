@@ -898,6 +898,8 @@ V-03 = Truck
         return value;
     }
 
+
+   // original
     private void GetSetCarName(int carno){
         String newcarname = getRandomName();
         toycarGroupData.get(carno).get(CAR_NAME);
@@ -927,7 +929,51 @@ V-03 = Truck
             mInsPolarbear.save();
         }
     }
+/*
+    private void GetSetCarName(int carno){
+//        String newcarname = getRandomName();
+        String newcarname;
+        String tmpCartye=toycarGroupData.get(carno).get(CAR_TYPE);
+        if (tmpCartye.equals("T-01"))
+        {
+            newcarname = "TT-001";
+        }
+        else if (tmpCartye.equals("T-02"))
+        {
+            newcarname = "TT-002";
+        }
+        else
+        {
+            newcarname = "TT-777";
+        }
+        toycarGroupData.get(carno).get(CAR_NAME);
+        for(int j=0;j<10;j++)
+        {
+            m_udpNetwork.SendChangeCarName(newcarname);
+            for (int m=0;m<100;m++)
+            {;}
+        }
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+//         m_udpNetwork.SendChangeCarName(newcarname);
+        for(int j=0;j<10;j++)
+        {
+            m_udpNetwork.SendChangeCarName(newcarname);
+            for (int m=0;m<100;m++)
+            {;}
+        }
+        for(int j=0;j<1;j++) {
 
+            toycarGroupData.get(carno).put(CAR_NAME, newcarname);
+            HILog.d(TAG, "GetSetCarName: Set DEVICE_NAME = " + newcarname);
+            mInsPolarbear.putString(ISKey.DEVICE_NAME, newcarname);
+            mInsPolarbear.save();
+        }
+    }
+*/
     public void playcannonfile(){
         mediaPlayer= MediaPlayer.create(mActivity, R.raw.cannon);
         mediaPlayer.start();
@@ -942,6 +988,7 @@ V-03 = Truck
         String carname=null;
         boolean mFlageVideo_saved, mQVGA_save;
         int carno=-1;
+        int m=0;
 //        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         switch (v.getId()) {
             case R.id.ib_fps:
@@ -1043,6 +1090,15 @@ V-03 = Truck
                 if(status.equals(Constants.STATUS_OWNED)) break;
                 mMotorCmdSending = false;
                 m_udpNetwork.ResetDevice();
+                for(m=0;m<100;m++)
+                {;}
+                m_udpNetwork.ResetDevice();
+                for(m=0;m<100;m++)
+                {;}
+                m_udpNetwork.ResetDevice();
+                for(m=0;m<100;m++)
+                {;}
+
                 mFlageVideo_saved = mFlageVideo;
                 mQVGA_save = mQVGA;
                 if(mFlageVideo) {
@@ -1085,14 +1141,19 @@ V-03 = Truck
 
 // remark for change name
 
-                int m=0;
+//                int m=0;
                 if(!IsDeviceNamed()){
                    GetSetCarName(carno);
 //                    for(m=0;m<1000;m++)
 //                    {;}
                 }
-
+               for(m=0;m<100;m++)
+                {;}
                 ClearAllCarOwner();
+                for(m=0;m<100;m++)
+                {;}
+                ClearAllCarOwner();
+
 //                for(m=0;m<1000;m++)
 //                {;}
 
@@ -1132,10 +1193,13 @@ V-03 = Truck
 //                m_QueryCarHandler.postDelayed(m_QueryCarTimeoutTask, Constants.QUERYCAR_TIMEOUT);
                 if(mFlageVideo_saved) {
 //                    SleepDelayTime(1000);
+
                     if(mQVGA_save) ib_queryhost.performClick();
                     else ibRecorder.performClick();
-                    if(mQVGA_save) m_udpNetwork.SendQVGAVideoOn();
-                    else m_udpNetwork.SendVideoOn();
+                    for (m=0; m<1; m++) {
+                        if (mQVGA_save) m_udpNetwork.SendQVGAVideoOn();
+                        else m_udpNetwork.SendVideoOn();
+                    }
                 }
                 break;
             case R.id.ibHitpoint:
@@ -1557,10 +1621,18 @@ V-03 = Truck
 
                     final String[]  strDevice = strbyData.split(";");
 //                    if(strDevice.length!=4) break;
-                    if(strDevice.length!=5) break;
+                    if((strDevice.length!=5) && (strDevice.length!=4))  break;
+
                     final int carno = IsThisCarInList(strDevice[1]);
                     String status = strDevice[3];
-                    String Battery = strDevice[4];
+                    String Battery;
+                    if (strDevice.length==5) {
+                        Battery = strDevice[4];
+                    }
+                    else
+                    {
+                        Battery = "4000";
+                    }
                     if(carno>=0){
                         toycarGroupData.get(carno).put(CAR_NAME, strDevice[0]);
                         toycarGroupData.get(carno).put(CAR_IP, strDevice[1]);
@@ -1617,6 +1689,26 @@ V-03 = Truck
         }
     };
 
+    private void check_video_on(){
+        int m=0;
+        boolean mFlageVideo_saved, mQVGA_save;
+        mFlageVideo_saved = mFlageVideo;
+        mQVGA_save = mQVGA;
+
+        if(mFlageVideo_saved) {
+//                    SleepDelayTime(1000);
+
+ //           if(mQVGA_save) ib_queryhost.performClick();
+ //           else ibRecorder.performClick();
+            for (m=0; m<1; m++) {
+                if (mQVGA_save) m_udpNetwork.SendQVGAVideoOn();
+                else m_udpNetwork.SendVideoOn();
+            }
+        }
+
+    }
+
+
     private void HideAllCars(){
         ShowOneCar(ibCar_1, true, 0);
         ShowOneCar(ibCar_2, true, 0);
@@ -1643,6 +1735,7 @@ V-03 = Truck
         else {
             if(owner.equals(Constants.OWNER_ME)) {
                 battery_int = Integer.valueOf(battery_string);
+                check_video_on();
             }
             else
             {
@@ -2249,8 +2342,10 @@ V-03 = Truck
             {
                 HILog.d(TAG, "videoView is Not Playing()!");
 //              ibRecorder.setBackgroundResource(R.mipmap.btn_videoon_h);
+
                 if(mQVGA) m_udpNetwork.SendQVGAVideoOn();
                 else m_udpNetwork.SendVideoOn();
+
                 videoView.setVisibility(View.VISIBLE);
                 videoView.startPlayback();
                 videoView.showFps(mEnable_Fps);
@@ -2262,6 +2357,7 @@ V-03 = Truck
 
     private void showMjpegVideo()
     {
+        int m2;
         HILog.d(TAG, "showMjpegVideo:");
 
         videoView = (MjpegView) getView().findViewById(R.id.videoView1);

@@ -12,6 +12,7 @@
     <list default="true" id="307c92df-05e2-4e78-888f-da94fe76280a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Version_log.txt" afterPath="$PROJECT_DIR$/../Version_log.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java" />
@@ -51,8 +52,8 @@
       <file leaf-file-name="PolarbearMainFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="1667" column="36" selection-start-line="1667" selection-start-column="36" selection-end-line="1667" selection-end-column="36" />
+            <state relative-caret-position="18012">
+              <caret line="1091" column="29" selection-start-line="1091" selection-start-column="29" selection-end-line="1091" selection-end-column="29" />
               <folding>
                 <element signature="method#IsApMode#0;class#PolarbearMainFragment#0" expanded="false" />
                 <element signature="method#AutoSelectMyCar#0;class#PolarbearMainFragment#0" expanded="false" />
@@ -66,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -118,6 +119,7 @@
             <state relative-caret-position="11742">
               <caret line="805" column="0" selection-start-line="805" selection-start-column="0" selection-end-line="805" selection-end-column="0" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="method#myEncryptCustomData#0;class#ScanWifiListFragment#0" expanded="false" />
                 <element signature="method#onLongClick#0;class#ScanWifiListFragment#0" expanded="false" />
                 <element signature="method#dialog_showmessage#0;class#ScanWifiListFragment#0" expanded="false" />
@@ -133,14 +135,20 @@
       <file leaf-file-name="UDPNetwork.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14687">
-              <caret line="959" column="39" selection-start-line="959" selection-start-column="24" selection-end-line="959" selection-end-column="39" />
+            <state relative-caret-position="12008">
+              <caret line="808" column="20" selection-start-line="808" selection-start-column="20" selection-end-line="808" selection-end-column="20" />
               <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1651#1652#0" expanded="false" />
+                <element signature="e#1685#1686#0" expanded="false" />
+                <element signature="e#1792#1793#0" expanded="false" />
+                <element signature="e#1818#1819#0" expanded="false" />
+                <element signature="e#1851#1852#0" expanded="false" />
+                <element signature="e#1893#1894#0" expanded="false" />
                 <element signature="method#StopReceiveServer#0;class#UDPNetwork#0" expanded="false" />
                 <element signature="method#BreakP2PConnect#0;class#UDPNetwork#0" expanded="false" />
                 <element signature="method#StartReceviceServer#0;class#UDPNetwork#0" expanded="false" />
                 <element signature="method#StartSendData#0;class#UDPNetwork#0" expanded="false" />
-                <element signature="method#SendVideoOff#0;class#UDPNetwork#0" expanded="false" />
                 <element signature="method#ScanClientSSID#0;class#UDPNetwork#0" expanded="false" />
                 <element signature="method#ChangeClientPassword#0;class#UDPNetwork#0" expanded="false" />
               </folding>
@@ -168,11 +176,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UDPBCNetwork.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UDPBCNetwork.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPBCNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17157">
-              <caret line="936" column="64" selection-start-line="936" selection-start-column="64" selection-end-line="936" selection-end-column="64" />
+            <state relative-caret-position="180">
+              <caret line="933" column="57" selection-start-line="933" selection-start-column="57" selection-end-line="933" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -181,9 +189,10 @@
       <file leaf-file-name="PolarbearMainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/activity/PolarbearMainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7619">
-              <caret line="640" column="52" selection-start-line="640" selection-start-column="40" selection-end-line="640" selection-end-column="52" />
+            <state relative-caret-position="7372">
+              <caret line="627" column="95" selection-start-line="627" selection-start-column="94" selection-end-line="627" selection-end-column="95" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="method#CheckIfSameClassC#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#IsDeviceNamed#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#AskForStoragePermission#0;class#PolarbearMainActivity#0" expanded="false" />
@@ -196,6 +205,8 @@
                 <element signature="method#onLongClick#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#getStopMp3Event#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#getPlayMp3Event#0;class#PolarbearMainActivity#0" expanded="false" />
+                <element signature="e#18530#18531#0" expanded="false" />
+                <element signature="e#18620#18621#0" expanded="false" />
                 <element signature="method#GetFileSection#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#ReadFileByte#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#getSettingStringValue#0;class#PolarbearMainActivity#0" expanded="false" />
@@ -205,6 +216,8 @@
                 <element signature="method#GetFileSection#1;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#dialog_showmessage#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#dialog_broadcast#0;class#PolarbearMainActivity#0" expanded="false" />
+                <element signature="e#38538#38539#0" expanded="false" />
+                <element signature="e#38591#38592#0" expanded="false" />
                 <element signature="method#stopMp3File#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#playbombfile#0;class#PolarbearMainActivity#0" expanded="false" />
                 <element signature="method#PlayMp3File#0;class#PolarbearMainActivity#0" expanded="false" />
@@ -1782,7 +1795,7 @@
       <map>
         <entry key="F:\android_T4\PolarBear_0.V\polarbear" value="4498981970472" />
         <entry key="F:\android_T4\PolarBear_2.0A\polarbear" value="4499588732747" />
-        <entry key="F:\test\Polarbear_Test\polarbear" value="4504973684630" />
+        <entry key="F:\test\Polarbear_Test\polarbear" value="4513268136598" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2137,10 +2150,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_setup_wifi_black.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/activity/PolarbearMainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/ScanWifiListFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java" />
       </list>
     </option>
   </component>
@@ -2175,7 +2188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2186,12 +2198,20 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Problems" />
-        <subPane subId="Project Files" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2539,11 +2559,11 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.45799676" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.43537965" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32258064" sideWeight="0.6082391" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32767403" sideWeight="0.5646204" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38539898" sideWeight="0.48707592" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2552,12 +2572,11 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32258064" sideWeight="0.39176092" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39898133" sideWeight="0.4063005" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39898133" sideWeight="0.3990307" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2566,6 +2585,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.36995155" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2632,43 +2652,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
-          <line>2249</line>
+          <line>2341</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
-          <line>1194</line>
+          <line>1257</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
-          <line>1182</line>
+          <line>1245</line>
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java</url>
-          <line>475</line>
+          <line>482</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java</url>
-          <line>461</line>
+          <line>463</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java</url>
-          <line>1097</line>
+          <line>1122</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java</url>
-          <line>945</line>
+          <line>970</line>
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
@@ -2692,39 +2712,51 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
-          <line>1677</line>
-          <properties />
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
-          <line>1693</line>
+          <line>1785</line>
           <properties />
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
-          <line>1709</line>
+          <line>1801</line>
           <properties />
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
-          <line>1725</line>
+          <line>1817</line>
           <properties />
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
-          <line>1638</line>
+          <line>1729</line>
           <properties />
           <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
+          <line>1158</line>
+          <properties />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
+          <line>905</line>
+          <properties />
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java</url>
+          <line>935</line>
+          <properties />
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="85" />
+      <option name="time" value="89" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2734,11 +2766,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1651#1652#0" expanded="false" />
+            <element signature="e#1685#1686#0" expanded="false" />
+            <element signature="e#1792#1793#0" expanded="false" />
+            <element signature="e#1818#1819#0" expanded="false" />
+            <element signature="e#1851#1852#0" expanded="false" />
+            <element signature="e#1893#1894#0" expanded="false" />
             <element signature="method#StopReceiveServer#0;class#UDPNetwork#0" expanded="false" />
             <element signature="method#BreakP2PConnect#0;class#UDPNetwork#0" expanded="false" />
             <element signature="method#StartReceviceServer#0;class#UDPNetwork#0" expanded="false" />
             <element signature="method#StartSendData#0;class#UDPNetwork#0" expanded="false" />
-            <element signature="method#SendVideoOff#0;class#UDPNetwork#0" expanded="false" />
             <element signature="method#ScanClientSSID#0;class#UDPNetwork#0" expanded="false" />
             <element signature="method#ChangeClientPassword#0;class#UDPNetwork#0" expanded="false" />
           </folding>
@@ -2905,13 +2943,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/polarbear_main2.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2157">
           <caret line="321" column="52" selection-start-line="321" selection-start-column="52" selection-end-line="321" selection-end-column="52" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/AboutFragment.java">
@@ -2923,13 +2961,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_base.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/activity/BaseActivity.java">
@@ -2940,23 +2978,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_base.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_setup_wifi_black.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_setup_wifi_black.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2926">
           <caret line="154" column="36" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="38" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/activity/BaseActivityFragment.java">
@@ -3026,7 +3064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3034,42 +3071,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/activity/PolarbearMainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7619">
-          <caret line="640" column="52" selection-start-line="640" selection-start-column="40" selection-end-line="640" selection-end-column="52" />
-          <folding>
-            <element signature="method#CheckIfSameClassC#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#IsDeviceNamed#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#AskForStoragePermission#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#setNowOrientation#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#onConfigurationChanged#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#onLongClick#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#getStopMp3Event#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#getPlayMp3Event#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#GetFileSection#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#ReadFileByte#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#getSettingStringValue#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#setSettingStringValue#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#getSettingIntValue#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#setSettingIntValue#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#GetFileSection#1;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#dialog_showmessage#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#dialog_broadcast#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#stopMp3File#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#playbombfile#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#PlayMp3File#0;class#PolarbearMainActivity#0" expanded="false" />
-            <element signature="method#onCompletion#0;class#PolarbearMainActivity#0" expanded="false" />
-            <marker date="1502508398800" expanded="true" signature="44746:45111" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3077,14 +3078,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="950">
           <caret line="59" column="35" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPBCNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17157">
-          <caret line="936" column="64" selection-start-line="936" selection-start-column="64" selection-end-line="936" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -3121,6 +3114,7 @@
         <state relative-caret-position="11742">
           <caret line="805" column="0" selection-start-line="805" selection-start-column="0" selection-end-line="805" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#myEncryptCustomData#0;class#ScanWifiListFragment#0" expanded="false" />
             <element signature="method#onLongClick#0;class#ScanWifiListFragment#0" expanded="false" />
             <element signature="method#dialog_showmessage#0;class#ScanWifiListFragment#0" expanded="false" />
@@ -3140,31 +3134,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14687">
-          <caret line="959" column="39" selection-start-line="959" selection-start-column="24" selection-end-line="959" selection-end-column="39" />
-          <folding>
-            <element signature="method#StopReceiveServer#0;class#UDPNetwork#0" expanded="false" />
-            <element signature="method#BreakP2PConnect#0;class#UDPNetwork#0" expanded="false" />
-            <element signature="method#StartReceviceServer#0;class#UDPNetwork#0" expanded="false" />
-            <element signature="method#StartSendData#0;class#UDPNetwork#0" expanded="false" />
-            <element signature="method#SendVideoOff#0;class#UDPNetwork#0" expanded="false" />
-            <element signature="method#ScanClientSSID#0;class#UDPNetwork#0" expanded="false" />
-            <element signature="method#ChangeClientPassword#0;class#UDPNetwork#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-ldpi/btn_t0102_h.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/activity/PolarbearMainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7372">
+          <caret line="627" column="95" selection-start-line="627" selection-start-column="94" selection-end-line="627" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#CheckIfSameClassC#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#IsDeviceNamed#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#AskForStoragePermission#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#setNowOrientation#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#onConfigurationChanged#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#onPause#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#onResume#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#onDestroy#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#onLongClick#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#getStopMp3Event#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#getPlayMp3Event#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="e#18530#18531#0" expanded="false" />
+            <element signature="e#18620#18621#0" expanded="false" />
+            <element signature="method#GetFileSection#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#ReadFileByte#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#getSettingStringValue#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#setSettingStringValue#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#getSettingIntValue#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#setSettingIntValue#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#GetFileSection#1;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#dialog_showmessage#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#dialog_broadcast#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="e#38538#38539#0" expanded="false" />
+            <element signature="e#38591#38592#0" expanded="false" />
+            <element signature="method#stopMp3File#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#playbombfile#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#PlayMp3File#0;class#PolarbearMainActivity#0" expanded="false" />
+            <element signature="method#onCompletion#0;class#PolarbearMainActivity#0" expanded="false" />
+            <marker date="1502508398800" expanded="true" signature="44746:45111" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/fragment/PolarbearMainFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="1667" column="36" selection-start-line="1667" selection-start-column="36" selection-end-line="1667" selection-end-column="36" />
+        <state relative-caret-position="18012">
+          <caret line="1091" column="29" selection-start-line="1091" selection-start-column="29" selection-end-line="1091" selection-end-column="29" />
           <folding>
             <element signature="method#IsApMode#0;class#PolarbearMainFragment#0" expanded="false" />
             <element signature="method#AutoSelectMyCar#0;class#PolarbearMainFragment#0" expanded="false" />
@@ -3177,10 +3203,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPNetwork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="12008">
+          <caret line="808" column="20" selection-start-line="808" selection-start-column="20" selection-end-line="808" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1651#1652#0" expanded="false" />
+            <element signature="e#1685#1686#0" expanded="false" />
+            <element signature="e#1792#1793#0" expanded="false" />
+            <element signature="e#1818#1819#0" expanded="false" />
+            <element signature="e#1851#1852#0" expanded="false" />
+            <element signature="e#1893#1894#0" expanded="false" />
+            <element signature="method#StopReceiveServer#0;class#UDPNetwork#0" expanded="false" />
+            <element signature="method#BreakP2PConnect#0;class#UDPNetwork#0" expanded="false" />
+            <element signature="method#StartReceviceServer#0;class#UDPNetwork#0" expanded="false" />
+            <element signature="method#StartSendData#0;class#UDPNetwork#0" expanded="false" />
+            <element signature="method#ScanClientSSID#0;class#UDPNetwork#0" expanded="false" />
+            <element signature="method#ChangeClientPassword#0;class#UDPNetwork#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ultraflymodel/polarbear/mike/UDPBCNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="933" column="57" selection-start-line="933" selection-start-column="57" selection-end-line="933" selection-end-column="57" />
           <folding />
         </state>
       </provider>

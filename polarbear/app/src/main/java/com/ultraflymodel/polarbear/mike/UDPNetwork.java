@@ -459,6 +459,8 @@ public class UDPNetwork
 	public  void SendQVGAVideoOn()
 	{
 //		SendVideoOff();
+		int m=0;
+		int n;
 		HILog.d(TAG, "SendQVGAVideoOn:");
 		ByteBuffer b = ByteBuffer.allocate(4);
 		b.order(ByteOrder.LITTLE_ENDIAN);           //WINDOWS SERVER
@@ -466,12 +468,17 @@ public class UDPNetwork
 		b.put((byte) 0x01);
 		b.put((byte) 0x00);
 		b.put((byte) 0x00);
-		SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
+		for (m=0; m<5; m++) {
+			SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
+			for (n=0; n<100;n++) {;}
+		}
 	}
 	
 	public  void SendVideoOn()   // change to send QVGA command
 	{
 //		SendVideoOff();
+		int m=0;
+		int n;
 		HILog.d(TAG, "SendVideoOn:");
 		ByteBuffer b = ByteBuffer.allocate(4);
 		b.order(ByteOrder.LITTLE_ENDIAN);           //WINDOWS SERVER
@@ -480,11 +487,16 @@ public class UDPNetwork
 		b.put((byte) 0x01);  // this is QVGA
 		b.put((byte) 0x00);
 		b.put((byte) 0x00);
-		SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
+		for (m=0; m<5; m++) {
+			SendCommand(b.array(), this.m_strP2PServerAddress, this.m_iP2PPort);
+			for (n=0; n<100;n++) {;}
+		}
 	}
 
 	public  void SendVideoOff()
 	{
+		int m=0;
+		int n;
 		HILog.d(TAG, "SendVideoOff:");
          ByteBuffer b = ByteBuffer.allocate(4);
 		 b.order(ByteOrder.LITTLE_ENDIAN);           //WINDOWS SERVER
@@ -492,8 +504,10 @@ public class UDPNetwork
 		 b.put((byte) 0x00);
 		 b.put((byte) 0x00);
 		 b.put((byte) 0x00);
-
-		 SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);		 		 
+		 for (m=0; m<5; m++) {
+		 	SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
+		 	for (n=0; n<100;n++) {;}
+		 }
 	}
 
 
@@ -698,7 +712,14 @@ public class UDPNetwork
 
 	public  void ResetDevice()
 	{
+
 		//0xBE 01 02 00 05 00
+		int m,n;
+		for (m=0; m<2; m++)
+		{
+			SendVideoOff();
+			for (n=0; n<100; n++) {;}
+		}
 		HILog.d(TAG, "ResetDevice:");
 		ByteBuffer b = ByteBuffer.allocate(6);
 		b.order(ByteOrder.LITTLE_ENDIAN);           //WINDOWS SERVER
@@ -711,7 +732,11 @@ public class UDPNetwork
 		b.put((byte) 0x00);
 
 		//m_listByteBuffer.add(b);
-		SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
+		for (m=0; m<5; m++)
+		{
+			SendCommand(b.array(), this.m_strP2PServerAddress, this.m_iP2PPort);
+			for (n=0; n<100; n++) {;}
+		}
 	}
 
 	public static byte[] intToByteArray4(int a)
