@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Polarbear</string>
+    <string name="app_name">Beta_Run</string>
     <string name="powered_by">Powered by Ultraflymodel.</string>
     <string name="title_activity_base">BaseActivity</string>
     <string name="action_settings">Settings</string>

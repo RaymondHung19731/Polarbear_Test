@@ -82,7 +82,8 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
     public static AudioPlayer m_AudioPlayer;
     public static MaterialDialog md_diaog=null;
     public static Activity mActivity = null;
-
+    public static int now_fps ;
+    public static int last_fps;
     public static Intent launchIntent;
     String m_strFilePlay;
 //    private static String m_strFilePlay_mono="0001_8000Hz_mono.wav";
@@ -573,13 +574,15 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
             case P2PNatProcess.RECEIVE_VIDEO_DATA:
                 byte[] byVideoDate = P2PNatProcess.get(byResponse, 4);
 
-
-                if( PolarbearMainFragment.videoView!=null)
+//                now_fps = (byte[]) (P2PNatProcess.get(byResponse, 1032, 1));
+                now_fps = byVideoDate[1021];
+                if(( PolarbearMainFragment.videoView!=null) && (last_fps != now_fps))
                 {
 //HILog.d(TAG, "success : P2PNatProcess.RECEIVE_VIDEO_DATA = " + iCommand  + ", iLen = " + iLen);
 
                     PolarbearMainFragment.videoView.ReceiveVideoData(byVideoDate, byVideoDate.length);
                 }
+                last_fps = now_fps;
                 break;
             case P2PNatProcess.TANK_HIT: //strHit = d4vgnv;d4vgnv;d4vgnv33;��������; mInjureSeqNo
                 HILog.d(TAG, "success : TANK_HIT");

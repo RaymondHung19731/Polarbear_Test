@@ -14,6 +14,7 @@ import com.ultraflymodel.polarbear.activity.PolarbearMainActivity;
 import com.ultraflymodel.polarbear.common.DBA;
 import com.ultraflymodel.polarbear.common.HILog;
 import com.ultraflymodel.polarbear.eventbus.WifiUdpEvent;
+import com.ultraflymodel.polarbear.fragment.PolarbearMainFragment;
 import com.ultraflymodel.polarbear.fragment.ScanWifiListFragment;
 import com.ultraflymodel.polarbear.ultraflymodel.UltraflyModelApplication;
 import com.ultraflymodel.polarbear.utils.CommonUtils;
@@ -769,6 +770,55 @@ public class UDPNetwork
 
 	}
 
+	private int test_count = 0;
+	public void SendVideoAck(byte packet01, byte packet02, byte frame01)
+	{
+		HILog.d(TAG, "SendVideoAck = " +  packet01 +  packet02 + frame01);
+		ByteBuffer b = ByteBuffer.allocate(8);
+		b.order(ByteOrder.LITTLE_ENDIAN);           //WINDOWS SERVER
+
+		b.put((byte) 0xBF);
+		b.put((byte) 0xFF);
+		b.put((byte) 0xFF);
+		b.put((byte) 0xFF);
+		b.put((byte) 0xF3);
+		b.put((byte) packet01);
+		b.put((byte) packet02);
+//		b.put((byte) frame01);
+		b.put((byte) test_count);
+		test_count++;
+
+
+
+		SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
+
+	}
+
+	public void SendVideCapture(long miliseconds)
+	{
+		HILog.d(TAG, "SendVideCaptureInterval = " + miliseconds);
+		ByteBuffer b = ByteBuffer.allocate(11);
+		b.order(ByteOrder.LITTLE_ENDIAN);           //WINDOWS SERVER
+
+		long tmp01 = (long) (miliseconds % 10);
+		long tmp02 = (long) (((miliseconds - (tmp01)) % 100)/10) ;
+		long tmp03 = (long) (((miliseconds - (tmp01) - (tmp02 * 10)) % 1000) /100);
+		long tmp04 = (long) ((miliseconds / 1000));
+		b.put((byte) 0xBE);
+		b.put((byte) 0x01);
+		b.put((byte) 0x07);
+		b.put((byte) 0x00);
+		b.put((byte) 0x10);
+		b.put((byte) 0x00);
+		b.put((byte) 0xFF);
+		b.put((byte) (tmp04 + '0'));
+		b.put((byte) (tmp03 + '0'));
+		b.put((byte) (tmp02 + '0'));
+		b.put((byte) (tmp01 + '0'));
+
+		SendCommand(b.array(),this.m_strP2PServerAddress,this.m_iP2PPort);
+
+	}
 
 	public  void SendCountDown(int seconds)
 	{
@@ -993,7 +1043,19 @@ public class UDPNetwork
 		 }.start();
 	 }
 
-     void ProcessCommand(byte[]  byData, int iLen , String LocalPort)
+	public int now_frame = 0;
+	public int last_frame = 0;
+	public short now_pack = 0;
+	public short last_pack = 0;
+
+	public long correct_pack = 0;
+	public long wrong_pack = 0;
+
+	public int correct_fps = 0;
+	public int wrong_fps = 0;
+    public int check_fps_flag = 0;
+
+	void ProcessCommand(byte[]  byData, int iLen , String LocalPort)
 	 {
 		 int iCommand = CommonUtils.unsignedToBytes(byData[0]);
 //		 HILog.d(true, TAG, "ProcessCommand: iCommand = 0x" + Integer.toHexString(iCommand).toUpperCase() + ", iLen = " + iLen);
@@ -1022,6 +1084,48 @@ public class UDPNetwork
 			 //Log.d(ConfigInfo.P2P_DEBUG_TAG, "Video Data!");
 			 mNetworkCallBack.success(P2PNatProcess.RECEIVE_VIDEO_DATA, 0,
 					 byData, iLen, LocalPort);
+             PolarbearMainFragment.UserMilliTimeInterval();
+//			 SendVideoAck(byData[1028], byData[1029], byData[1030]);
+             now_frame = (short) (byData[1030] & 0xFF);
+			 now_pack = (short) (byData[1028] & 0xFF);
+			 now_pack += (short) ((byData[1029] & 0xFF) * 256);
+
+
+             if (now_frame != last_frame )
+             {
+				 PolarbearMainFragment.UserMilliTimeFrameInterval();
+				 if (check_fps_flag != 0)
+				 {
+				 	wrong_fps++;
+				 }
+				 else
+				 {
+				 	correct_fps++;
+				 }
+
+
+				 check_fps_flag = 0;
+			 }
+
+			 if ((now_pack - last_pack) == 1)
+			 {
+				 correct_pack++;
+			 }
+			 else
+			 {
+				 wrong_pack++;
+				 check_fps_flag++;
+			 }
+
+			 last_frame = now_frame;
+			 last_pack = now_pack;
+			 if ( PolarbearMainFragment.GetVideo_flag == 0) {
+				 PolarbearMainFragment.Video_ON_02 = PolarbearMainFragment.UserGetTime();
+				 PolarbearMainFragment.Video_ON_interval = PolarbearMainFragment.Video_ON_02 - PolarbearMainFragment.Video_ON_01;
+				 PolarbearMainFragment.GetVideo_flag = 1;
+//				 SendVideCapture(PolarbearMainFragment.Video_ON_interval);
+			 }
+
 		 }
 		 else if(byData[0]==(byte)0xBC) //0xBC: be hitted
 		 {

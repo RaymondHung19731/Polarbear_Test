@@ -78,6 +78,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.net.DatagramSocket;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
@@ -128,6 +129,12 @@ public class PolarbearMainFragment extends Fragment implements View.OnClickListe
     private Handler mHandler;
     private int mAmIOwnTheCar = -1;
     private boolean mAliveTask = false;
+    public static long Video_ON_01;
+    public static long Video_ON_02;
+    public static long Video_ON_interval;
+    public static int GetVideo_flag=0;
+
+
 
     public Handler m_CountDownHandler = new Handler();
     private Runnable m_CountDownTimeoutTask = new Runnable() {
@@ -238,6 +245,7 @@ public class PolarbearMainFragment extends Fragment implements View.OnClickListe
     private ImageButton ibLife;
     private LinearLayout ll_hp;
     private TextView tv_hp, tv_winner;
+    private TextView fps_OK, fps_NG;
     private LinearLayout ll_carlist;
     private ImageButton ibClock;
     private TextView tv_clock;
@@ -259,10 +267,17 @@ public class PolarbearMainFragment extends Fragment implements View.OnClickListe
 
     private static boolean m_Demomode = Constants.DEMOMODE;
 
+    private ImageButton ib_battery0;
+    private ImageButton ib_battery1;
+    private ImageButton ib_battery2;
+    private ImageButton ib_battery3;
+    private ImageButton ib_battery4;
+    private ImageButton ib_battery5;
 
 
     int m_iWheel=1500,m_iWheel2=1500,m_iWheel3=1500, m_iWheel4=1500,m_iWheel5=1500,m_iWheel6=1500;
     Timer timer;
+    Timer test_timer;
     protected static final int START_VIDEO = 0;
 
 
@@ -410,6 +425,8 @@ V-03 = Truck
 
         ib_fps = (ImageButton) mainview.findViewById(R.id.ib_fps);
         ib_fps.setOnClickListener(this);
+        fps_OK = (TextView) mainview.findViewById(R.id.fps_OK);
+        fps_NG = (TextView) mainview.findViewById(R.id.fps_NG);
 
 
         ll_hitpoint = (LinearLayout) mainview.findViewById(R.id.ll_hitpoint);
@@ -421,6 +438,13 @@ V-03 = Truck
         rl_ch3 = (RelativeLayout) mainview.findViewById(R.id.rl_ch3);
         rl_ch4 = (RelativeLayout) mainview.findViewById(R.id.rl_ch4);
         rl_ch5 = (RelativeLayout) mainview.findViewById(R.id.rl_ch5);
+
+        ib_battery0 = (ImageButton)  mainview.findViewById(R.id.ib_battery0);
+        ib_battery1 = (ImageButton)  mainview.findViewById(R.id.ib_battery1);
+        ib_battery2 = (ImageButton)  mainview.findViewById(R.id.ib_battery2);
+        ib_battery3 = (ImageButton)  mainview.findViewById(R.id.ib_battery3);
+        ib_battery4 = (ImageButton)  mainview.findViewById(R.id.ib_battery4);
+        ib_battery5 = (ImageButton)  mainview.findViewById(R.id.ib_battery5);
 
         ibLeft = (ImageButton) mainview.findViewById(R.id.ibLeft);
         ibLeft.setOnTouchListener(new View.OnTouchListener() {
@@ -636,6 +660,12 @@ V-03 = Truck
         rl_ch3.setVisibility(View.INVISIBLE);
         rl_ch4.setVisibility(View.INVISIBLE);
         rl_ch5.setVisibility(View.INVISIBLE);
+        ib_battery0.setVisibility(View.INVISIBLE);
+        ib_battery1.setVisibility(View.INVISIBLE);
+        ib_battery2.setVisibility(View.INVISIBLE);
+        ib_battery3.setVisibility(View.INVISIBLE);
+        ib_battery4.setVisibility(View.INVISIBLE);
+        ib_battery5.setVisibility(View.INVISIBLE);
     }
 /*
 T-01”  代表的是 Tiger 車型
@@ -667,6 +697,12 @@ V-03 = Truck
                 rl_ch3.setVisibility(View.INVISIBLE);
                 rl_ch4.setVisibility(View.INVISIBLE);
                 rl_ch5.setVisibility(View.INVISIBLE);
+                ib_battery0.setVisibility(View.INVISIBLE);
+                ib_battery1.setVisibility(View.INVISIBLE);
+                ib_battery2.setVisibility(View.INVISIBLE);
+                ib_battery3.setVisibility(View.INVISIBLE);
+                ib_battery4.setVisibility(View.INVISIBLE);
+                ib_battery5.setVisibility(View.INVISIBLE);
                 break;
             case 2:
             case 3:
@@ -686,6 +722,12 @@ V-03 = Truck
                 ll_hitpoint.setVisibility(View.INVISIBLE);
                 rl_channel6.setVisibility(View.VISIBLE);
                 ll_seekbars.setVisibility(View.VISIBLE);
+                ib_battery0.setVisibility(View.INVISIBLE);
+                ib_battery1.setVisibility(View.INVISIBLE);
+                ib_battery2.setVisibility(View.INVISIBLE);
+                ib_battery3.setVisibility(View.INVISIBLE);
+                ib_battery4.setVisibility(View.INVISIBLE);
+                ib_battery5.setVisibility(View.INVISIBLE);
                 break;
         }
 
@@ -724,6 +766,12 @@ V-03 = Truck
         rl_ch3.setVisibility(View.INVISIBLE);
         rl_ch4.setVisibility(View.INVISIBLE);
         rl_ch5.setVisibility(View.INVISIBLE);
+        ib_battery0.setVisibility(View.INVISIBLE);
+        ib_battery1.setVisibility(View.INVISIBLE);
+        ib_battery2.setVisibility(View.INVISIBLE);
+        ib_battery3.setVisibility(View.INVISIBLE);
+        ib_battery4.setVisibility(View.INVISIBLE);
+        ib_battery5.setVisibility(View.INVISIBLE);
     }
 
     private void ShowOnlySettting(){
@@ -742,6 +790,10 @@ V-03 = Truck
         ll_hitpoint.setVisibility(View.INVISIBLE);
         rl_channel6.setVisibility(View.INVISIBLE);
         ll_seekbars.setVisibility(View.INVISIBLE);
+        ib_battery0.setVisibility(View.INVISIBLE);
+        ib_battery3.setVisibility(View.INVISIBLE);
+        ib_battery5.setVisibility(View.INVISIBLE);
+
     }
 
     public class timerTask extends TimerTask
@@ -757,6 +809,67 @@ V-03 = Truck
 
         }
     };
+
+    private Handler handler = new Handler()
+    {
+        public  void  handleMessage(Message msg)
+        {
+            super.handleMessage(msg);
+             String s="";
+             String s2="";
+          s ="fps:" + PolarbearMainActivity.m_udpNetwork.correct_fps;
+          s2 = s + ", NG:" + PolarbearMainActivity.m_udpNetwork.wrong_fps + "\n";
+          s2 = s2 + "pks:" + PolarbearMainActivity.m_udpNetwork.correct_pack;
+            s2 = s2 + ", NG:" + PolarbearMainActivity.m_udpNetwork.wrong_pack;
+
+          //        s = "0" + 1;
+//        s = s + ":" + 2;
+//        fps_OK.setText(String.valueOf(PolarbearMainActivity.m_udpNetwork.correct_pack));
+     //     fps_OK.setText(s);
+          fps_NG.setText(s2);
+//        fps_NG.setText(String.valueOf(PolarbearMainActivity.m_udpNetwork.wrong_pack));
+            PolarbearMainActivity.m_udpNetwork.correct_pack = 0;
+            PolarbearMainActivity.m_udpNetwork.wrong_pack = 0;
+            PolarbearMainActivity.m_udpNetwork.correct_fps = 0;
+            PolarbearMainActivity.m_udpNetwork.wrong_fps = 0;
+
+        }
+    };
+
+    public class test_timerTask extends TimerTask
+    {
+        public void run()
+        {
+//            HILog.d(TAG, "timerTask: mMotorCmdSending = " + mMotorCmdSending);//
+ //           if(mMotorCmdSending) {
+  //              m_udpNetwork.SendControlMotorCommand(m_iWheel,m_iWheel2,m_iWheel3,m_iWheel4,m_iWheel5,m_iWheel6);
+   //         } else {
+//
+ //           }
+//            UDPNetwork.SendVideCapture(PolarbearMainFragment.Video_ON_interval);
+ //           m_udpNetwork.SendVideCapture(PacketInterval);
+
+//            m_udpNetwork.SendVideCapture(FrameInterval);
+//        String s="";
+//        s="" + PolarbearMainActivity.m_udpNetwork.correct_fps;
+//        s = s + ":" + PolarbearMainActivity.m_udpNetwork.wrong_fps;
+//        s = "0" + 1;
+//        s = s + 2;
+//        fps_OK.setText(String.valueOf(PolarbearMainActivity.m_udpNetwork.correct_pack));
+//        fps_OK.setText(s);
+
+//        fps_NG.setText(String.valueOf(PolarbearMainActivity.m_udpNetwork.wrong_pack));
+
+            HILog.d(TAG, "PacketCorrect : " + PolarbearMainActivity.m_udpNetwork.correct_pack + ";  PacketWrong = " + PolarbearMainActivity.m_udpNetwork.wrong_pack);//
+            HILog.d(TAG, "FpsCorrect : " + PolarbearMainActivity.m_udpNetwork.correct_fps + ";  FpsWrong = " + PolarbearMainActivity.m_udpNetwork.wrong_fps);//
+
+            Message message = new Message();
+            message.what =1;
+            handler.sendMessage(message);
+        }
+    };
+
+
 
     @Override
     public void onPause() {
@@ -1004,6 +1117,15 @@ V-03 = Truck
                                 mEnable_Fps = !mEnable_Fps;
                                 if(videoView!=null)
                                 videoView.showFps(mEnable_Fps);
+                                if (mEnable_Fps == true)
+                                {
+                                    fps_NG.setVisibility(View.VISIBLE);
+                                }
+                                else
+                                {
+                                    fps_NG.setVisibility(View.INVISIBLE);
+
+                                }
                             }
                             mFps = 0;
                         } //run
@@ -1037,6 +1159,14 @@ V-03 = Truck
                     }
                     timer = new Timer(true);
                     timer.schedule(new timerTask(), 1000, 20);
+
+                    if(test_timer!=null) {
+                        test_timer.cancel();
+                        test_timer.purge();
+                    }
+                    test_timer = new Timer(true);
+                    test_timer.schedule(new test_timerTask(), 1000, 1000);
+
                     mMotorCmdSending = true;
                     HashMap<String, String> newToycarData = new HashMap<String, String>();
                     newToycarData.put(CAR_NAME, ssid);
@@ -1137,6 +1267,18 @@ V-03 = Truck
                 HILog.d(TAG, "onClick: timer started.");
 
                 mMotorCmdSending = true;
+
+                if(test_timer!=null) {
+                    test_timer.cancel();
+                    test_timer.purge();
+                }
+
+                test_timer = new Timer(true);
+                test_timer.schedule(new test_timerTask(), 1000, 1000);
+
+                HILog.d(TAG, "onClick: test_timer started.");
+
+//                mMotorCmdSending = true;
 
 
 // remark for change name
@@ -1621,12 +1763,13 @@ V-03 = Truck
 
                     final String[]  strDevice = strbyData.split(";");
 //                    if(strDevice.length!=4) break;
-                    if((strDevice.length!=5) && (strDevice.length!=4))  break;
+//                    if((strDevice.length!=5) && (strDevice.length!=4))  break;
+                    if((strDevice.length<=4) && (strDevice.length>=8))  break;
 
                     final int carno = IsThisCarInList(strDevice[1]);
                     String status = strDevice[3];
                     String Battery;
-                    if (strDevice.length==5) {
+                    if (strDevice.length>=5) {
                         Battery = strDevice[4];
                     }
                     else
@@ -1717,6 +1860,68 @@ V-03 = Truck
         ShowOneCar(ibCar_5, true, 0);
     }
 
+    private void Show_battery_flag(int battery_int)
+    {
+        if (battery_int>4000)
+        {
+            ib_battery0.setVisibility(View.INVISIBLE);
+            ib_battery1.setVisibility(View.INVISIBLE);
+            ib_battery2.setVisibility(View.INVISIBLE);
+            ib_battery3.setVisibility(View.INVISIBLE);
+            ib_battery4.setVisibility(View.INVISIBLE);
+            ib_battery5.setVisibility(View.VISIBLE);
+        }
+        else if (battery_int>3900)
+        {
+            ib_battery0.setVisibility(View.INVISIBLE);
+            ib_battery1.setVisibility(View.INVISIBLE);
+            ib_battery2.setVisibility(View.INVISIBLE);
+            ib_battery3.setVisibility(View.INVISIBLE);
+            ib_battery4.setVisibility(View.VISIBLE);
+            ib_battery5.setVisibility(View.INVISIBLE);
+        }
+        else if (battery_int>3800)
+        {
+            ib_battery0.setVisibility(View.INVISIBLE);
+            ib_battery1.setVisibility(View.INVISIBLE);
+            ib_battery2.setVisibility(View.INVISIBLE);
+            ib_battery3.setVisibility(View.VISIBLE);
+            ib_battery4.setVisibility(View.INVISIBLE);
+            ib_battery5.setVisibility(View.INVISIBLE);
+        }
+        else if (battery_int>3700)
+        {
+            ib_battery0.setVisibility(View.INVISIBLE);
+            ib_battery1.setVisibility(View.INVISIBLE);
+            ib_battery2.setVisibility(View.VISIBLE);
+            ib_battery3.setVisibility(View.INVISIBLE);
+            ib_battery4.setVisibility(View.INVISIBLE);
+            ib_battery5.setVisibility(View.INVISIBLE);
+
+        }
+        else if (battery_int>3600)
+        {
+            ib_battery0.setVisibility(View.INVISIBLE);
+            ib_battery1.setVisibility(View.VISIBLE);
+            ib_battery2.setVisibility(View.INVISIBLE);
+            ib_battery3.setVisibility(View.INVISIBLE);
+            ib_battery4.setVisibility(View.INVISIBLE);
+            ib_battery5.setVisibility(View.INVISIBLE);
+
+        }
+        else
+        {
+            ib_battery0.setVisibility(View.VISIBLE);
+            ib_battery1.setVisibility(View.INVISIBLE);
+            ib_battery2.setVisibility(View.INVISIBLE);
+            ib_battery3.setVisibility(View.INVISIBLE);
+            ib_battery4.setVisibility(View.INVISIBLE);
+            ib_battery5.setVisibility(View.INVISIBLE);
+
+        }
+
+    }
+
     private void ShowOneCar(int id, ImageButton theCar){
         int resid = R.mipmap.btn_t01_n;
         Context m_context;
@@ -1751,12 +1956,48 @@ V-03 = Truck
                     resid = R.mipmap.btn_t01_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_t0102_h;
-                    if (battery_int<3000) {
+ //                   if (battery_int<3000) {
+ //                       HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
+  //                      UDPNetwork.PopUnderVoltage();
+
+ //                   }
+                    Show_battery_flag(battery_int);
+/*
+                    if (battery_int>4000)
+                    {
                         HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
-                        UDPNetwork.PopUnderVoltage();
+                        //                      UDPNetwork.PopUnderVoltage();
+                        //5
+                        ib_battery0.setFocusable(true);
+                    }
+                    else if (battery_int>3900)
+                    {
+                        //4
+                        ib_battery0.setFocusable(true);
+                    }
+                    else if (battery_int>3800)
+                    {
+                        //3
+                        ib_battery0.setFocusable(true);
+                    }
+                    else if (battery_int>3700)
+                    {
+                        //2
+                        ib_battery0.setFocusable(true);
+                    }
+                    else if (battery_int>3600)
+                    {
+                        //1
+                        ib_battery0.setFocusable(true);
 
                     }
+                    else
+                    {
+                        //0
+                        ib_battery0.setFocusable(true);
 
+                    }
+ */
                 } else {
                     resid = R.mipmap.btn_t0102_d;
                 }
@@ -1767,11 +2008,7 @@ V-03 = Truck
                     resid = R.mipmap.btn_t02_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_t0102_h;
-                    if (battery_int<3000) {
-                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
-                        UDPNetwork.PopUnderVoltage();
-
-                    }
+                    Show_battery_flag(battery_int);
 
                 } else {
                     resid = R.mipmap.btn_t0102_d;
@@ -1783,12 +2020,7 @@ V-03 = Truck
                     resid = R.mipmap.btn_v01_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_v01_h;
-                    if (battery_int<3000) {
-                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
-                        UDPNetwork.PopUnderVoltage();
-
-                    }
-
+                    Show_battery_flag(battery_int);
                 } else {
                     resid = R.mipmap.btn_v01_d;
                 }
@@ -1799,12 +2031,7 @@ V-03 = Truck
                     resid = R.mipmap.btn_v02_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_v02_h;
-                    if (battery_int<3000) {
-                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
-                        UDPNetwork.PopUnderVoltage();
-
-                    }
-
+                    Show_battery_flag(battery_int);
                 } else {
                     resid = R.mipmap.btn_v02_d;
                 }
@@ -1815,12 +2042,7 @@ V-03 = Truck
                     resid = R.mipmap.btn_v03_n;
                 } else if(owner.equals(Constants.OWNER_ME)){
                     resid = R.mipmap.btn_v03_h;
-                    if (battery_int<3000) {
-                        HILog.d(TAG, "ShowOneCar: id = " + id + ", status = " + status + ", owner = " + owner + ", cartype = " + cartype + ", battery = " + battery_int );
-                        UDPNetwork.PopUnderVoltage();
-
-                    }
-
+                    Show_battery_flag(battery_int);
                 } else {
                     resid = R.mipmap.btn_v03_d;
                 }
@@ -2319,13 +2541,67 @@ V-03 = Truck
         return value;
     }
 
+    public static long UserGetTime()
+    {
+        Calendar rightNow = Calendar.getInstance();
+        long offset = rightNow.get(Calendar.ZONE_OFFSET) +  rightNow.get(Calendar.DST_OFFSET);
+        long mili_time = rightNow.getTimeInMillis();
+        long hour = rightNow.get(Calendar.HOUR);
+        long minute = rightNow.get(Calendar.MINUTE);
+        long second = rightNow.get(Calendar.SECOND);
+        long millisecond = rightNow.get(Calendar.MILLISECOND);
+
+        HILog.d(TAG, "UserGetTime:");
+
+        //       String sinceMidnight = Long.toString((rightNow.getTimeInMillis() + offset) %  (24 * 60 * 60 * 1000));
+        return mili_time;
+    }
+
+    public static long PacketInterval;
+    public static long PacketInterval_01 = 0;
+    public static long FrameInterval;
+    public static long FrameInterval_01 = 0;
+    public static long UserMilliTimeInterval()
+    {
+        Calendar rightNow = Calendar.getInstance();
+//        long offset = rightNow.get(Calendar.ZONE_OFFSET) +  rightNow.get(Calendar.DST_OFFSET);
+        long mili_time = rightNow.getTimeInMillis();
+        PacketInterval =  mili_time - PacketInterval_01;
+        PacketInterval_01 = mili_time;
+  //      HILog.d(TAG, "UserPacketInterval:");
+
+        //       String sinceMidnight = Long.toString((rightNow.getTimeInMillis() + offset) %  (24 * 60 * 60 * 1000));
+        return PacketInterval;
+    }
+
+    public static long UserMilliTimeFrameInterval()
+    {
+        Calendar rightNow = Calendar.getInstance();
+//        long offset = rightNow.get(Calendar.ZONE_OFFSET) +  rightNow.get(Calendar.DST_OFFSET);
+        long mili_time = rightNow.getTimeInMillis();
+        FrameInterval =  mili_time - FrameInterval_01;
+        FrameInterval_01 = mili_time;
+   //     HILog.d(TAG, "UserFrameInterval:");
+
+        //       String sinceMidnight = Long.toString((rightNow.getTimeInMillis() + offset) %  (24 * 60 * 60 * 1000));
+        return FrameInterval;
+    }
+
+
     public void onPlay()
     {
         HILog.d(TAG, "onPlay: ");
         if (videoView == null)
         {
             HILog.d(TAG, "onPlay: videoView is null!");
+            GetVideo_flag = 0;
             showMjpegVideo();
+            Video_ON_01 = UserGetTime();
+
+//            public long Video_ON_01;
+ //           public long Video_ON_02;
+  //          public long Video_ON_interval;
+            HILog.d(TAG, "onPlay: videoView is null!");
         }
         else
         {

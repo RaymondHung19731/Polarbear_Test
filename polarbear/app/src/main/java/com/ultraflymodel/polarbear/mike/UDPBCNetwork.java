@@ -851,7 +851,7 @@ public class UDPBCNetwork
 			//A2 == Audio ON...
 			//A3  == Audio  OFF...
 		 if(byData[0]==(byte)0xBE){
-//			 if(byData[4]==(byte)0x10&&byData[6]==(byte)0x01) {
+			 if((byData[4]==(byte)0x10) && (byData[6]==(byte)0x01)) {
 /*
 11-03 21:36:06.047 32267-32306/com.ultraflymodel.polarbear D/UDPBCNetwork: HILog:StartReceviceServer: m_LocalPort = 8520, i = : 0: BE
 11-03 21:36:06.047 32267-32306/com.ultraflymodel.polarbear D/UDPBCNetwork: HILog:StartReceviceServer: m_LocalPort = 8520, i = : 1: 1
@@ -864,7 +864,7 @@ public class UDPBCNetwork
 11-03 21:36:06.047 32267-32306/com.ultraflymodel.polarbear D/UDPBCNetwork: HILog:StartReceviceServer: m_LocalPort = 8520, i = : 8: 0
 */
 				 mNetworkCallBack.success(P2PNatProcess.COUNTDOWN, 0, byData, iLen, LocalPort);
-//			 }
+			 }
 		 } else
 			if(byData[0]==(byte)0xBC) //0xBC: be hitted
 			{

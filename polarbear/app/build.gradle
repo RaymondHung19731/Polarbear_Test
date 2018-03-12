@@ -4,8 +4,8 @@ android {
     compileSdkVersion 24
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.ultraflymodel.polarbear"
-        minSdkVersion 24
+        applicationId "com.ultraflymodel.BetaRun"
+        minSdkVersion 20
         targetSdkVersion 24
         versionCode 1
         versionName "3.0.0"
