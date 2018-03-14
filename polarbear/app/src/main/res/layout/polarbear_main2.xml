@@ -85,7 +85,7 @@
         android:layout_gravity="center_horizontal|bottom"
         android:visibility="invisible"
         />
-        <ImageButton
+         <ImageButton
             android:id="@+id/ib_fps"
             android:layout_height="70dp"
             android:layout_width="70dp"
@@ -151,6 +151,7 @@
                             android:layout_weight="6"
                             android:orientation="horizontal"
                             >
+
                             <ImageButton
                                 android:id="@+id/ib_hp_1"
                                 android:layout_height="match_parent"
@@ -296,18 +297,14 @@
                         android:layout_height="match_parent"
                         android:layout_width="0dp"
                         android:layout_weight="13"/>
-                    <TextView
+
+                    <ImageButton
+                        android:id="@+id/ib_battery0"
                         android:layout_height="match_parent"
                         android:layout_width="0dp"
-                        android:layout_weight="200"
-                        android:gravity="left"
-                        android:textColor="@android:color/holo_red_dark"
-                        android:background="@android:color/black"
-                        android:textSize="@dimen/default_margin_mid2"
-                        android:typeface="sans"
-                        android:text="0000000"
-                        android:visibility="invisible"
-                        android:id="@+id/fps_NG" />
+                        android:layout_weight="45"
+                        android:background="@mipmap/battery_0"
+                        />
                     <ImageButton
                         android:id="@+id/ibClock"
                         android:layout_height="match_parent"
@@ -380,11 +377,11 @@
                 <View
                     android:layout_height="match_parent"
                     android:layout_width="0dp"
-                    android:layout_weight="600"/>
+                    android:layout_weight="300"/>
                 <TextView
                     android:layout_height="match_parent"
                     android:layout_width="0dp"
-                    android:layout_weight="78"
+                    android:layout_weight="18"
                     android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/default_margin_large2"
@@ -392,54 +389,21 @@
                     android:text="00"
                     android:visibility="invisible"
                     android:id="@+id/fps_OK"/>
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="200"
+                    android:gravity="left"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:background="@android:color/black"
+                    android:textSize="@dimen/default_margin_mid2"
+                    android:typeface="sans"
+                    android:text="0000000"
+                    android:visibility="invisible"
+                    android:id="@+id/fps_NG" />
 
 
 
-                <ImageButton
-                    android:id="@+id/ib_battery5"
-                    android:layout_height="match_parent"
-                    android:layout_width="0dp"
-                    android:layout_weight="45"
-                    android:background="@mipmap/battery_5"
-                    />
-                <ImageButton
-                    android:id="@+id/ib_battery4"
-                    android:layout_height="match_parent"
-                    android:layout_width="0dp"
-                    android:layout_weight="45"
-                    android:background="@mipmap/battery_4"
-                    />
-
-                <ImageButton
-                    android:id="@+id/ib_battery3"
-                    android:layout_height="match_parent"
-                    android:layout_width="0dp"
-                    android:layout_weight="45"
-                    android:background="@mipmap/battery_3"
-                    />
-                <ImageButton
-                    android:id="@+id/ib_battery2"
-                    android:layout_height="match_parent"
-                    android:layout_width="0dp"
-                    android:layout_weight="45"
-                    android:background="@mipmap/battery_2"
-                    />
-                <ImageButton
-                    android:id="@+id/ib_battery1"
-                    android:layout_height="match_parent"
-                    android:layout_width="0dp"
-                    android:layout_weight="45"
-                    android:background="@mipmap/battery_1"
-                    />
-
-
-                <ImageButton
-                    android:id="@+id/ib_battery0"
-                    android:layout_height="match_parent"
-                    android:layout_width="0dp"
-                    android:layout_weight="45"
-                    android:background="@mipmap/battery_0"
-                    />
 
             </LinearLayout>
             <View

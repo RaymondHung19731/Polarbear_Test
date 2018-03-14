@@ -440,11 +440,11 @@ V-03 = Truck
         rl_ch5 = (RelativeLayout) mainview.findViewById(R.id.rl_ch5);
 
         ib_battery0 = (ImageButton)  mainview.findViewById(R.id.ib_battery0);
-        ib_battery1 = (ImageButton)  mainview.findViewById(R.id.ib_battery1);
-        ib_battery2 = (ImageButton)  mainview.findViewById(R.id.ib_battery2);
-        ib_battery3 = (ImageButton)  mainview.findViewById(R.id.ib_battery3);
-        ib_battery4 = (ImageButton)  mainview.findViewById(R.id.ib_battery4);
-        ib_battery5 = (ImageButton)  mainview.findViewById(R.id.ib_battery5);
+ //       ib_battery1 = (ImageButton)  mainview.findViewById(R.id.ib_battery1);
+ //       ib_battery2 = (ImageButton)  mainview.findViewById(R.id.ib_battery2);
+ //       ib_battery3 = (ImageButton)  mainview.findViewById(R.id.ib_battery3);
+ //       ib_battery4 = (ImageButton)  mainview.findViewById(R.id.ib_battery4);
+ //       ib_battery5 = (ImageButton)  mainview.findViewById(R.id.ib_battery5);
 
         ibLeft = (ImageButton) mainview.findViewById(R.id.ibLeft);
         ibLeft.setOnTouchListener(new View.OnTouchListener() {
@@ -661,11 +661,11 @@ V-03 = Truck
         rl_ch4.setVisibility(View.INVISIBLE);
         rl_ch5.setVisibility(View.INVISIBLE);
         ib_battery0.setVisibility(View.INVISIBLE);
-        ib_battery1.setVisibility(View.INVISIBLE);
-        ib_battery2.setVisibility(View.INVISIBLE);
-        ib_battery3.setVisibility(View.INVISIBLE);
-        ib_battery4.setVisibility(View.INVISIBLE);
-        ib_battery5.setVisibility(View.INVISIBLE);
+  //      ib_battery1.setVisibility(View.INVISIBLE);
+  //      ib_battery2.setVisibility(View.INVISIBLE);
+  //      ib_battery3.setVisibility(View.INVISIBLE);
+  //      ib_battery4.setVisibility(View.INVISIBLE);
+  //      ib_battery5.setVisibility(View.INVISIBLE);
     }
 /*
 T-01”  代表的是 Tiger 車型
@@ -698,11 +698,11 @@ V-03 = Truck
                 rl_ch4.setVisibility(View.INVISIBLE);
                 rl_ch5.setVisibility(View.INVISIBLE);
                 ib_battery0.setVisibility(View.INVISIBLE);
-                ib_battery1.setVisibility(View.INVISIBLE);
-                ib_battery2.setVisibility(View.INVISIBLE);
-                ib_battery3.setVisibility(View.INVISIBLE);
-                ib_battery4.setVisibility(View.INVISIBLE);
-                ib_battery5.setVisibility(View.INVISIBLE);
+   //             ib_battery1.setVisibility(View.INVISIBLE);
+   //             ib_battery2.setVisibility(View.INVISIBLE);
+    //            ib_battery3.setVisibility(View.INVISIBLE);
+    //            ib_battery4.setVisibility(View.INVISIBLE);
+    //            ib_battery5.setVisibility(View.INVISIBLE);
                 break;
             case 2:
             case 3:
@@ -723,11 +723,11 @@ V-03 = Truck
                 rl_channel6.setVisibility(View.VISIBLE);
                 ll_seekbars.setVisibility(View.VISIBLE);
                 ib_battery0.setVisibility(View.INVISIBLE);
-                ib_battery1.setVisibility(View.INVISIBLE);
-                ib_battery2.setVisibility(View.INVISIBLE);
-                ib_battery3.setVisibility(View.INVISIBLE);
-                ib_battery4.setVisibility(View.INVISIBLE);
-                ib_battery5.setVisibility(View.INVISIBLE);
+   //             ib_battery1.setVisibility(View.INVISIBLE);
+   //             ib_battery2.setVisibility(View.INVISIBLE);
+   //             ib_battery3.setVisibility(View.INVISIBLE);
+   //             ib_battery4.setVisibility(View.INVISIBLE);
+   //             ib_battery5.setVisibility(View.INVISIBLE);
                 break;
         }
 
@@ -767,11 +767,11 @@ V-03 = Truck
         rl_ch4.setVisibility(View.INVISIBLE);
         rl_ch5.setVisibility(View.INVISIBLE);
         ib_battery0.setVisibility(View.INVISIBLE);
-        ib_battery1.setVisibility(View.INVISIBLE);
-        ib_battery2.setVisibility(View.INVISIBLE);
-        ib_battery3.setVisibility(View.INVISIBLE);
-        ib_battery4.setVisibility(View.INVISIBLE);
-        ib_battery5.setVisibility(View.INVISIBLE);
+//        ib_battery1.setVisibility(View.INVISIBLE);
+ //       ib_battery2.setVisibility(View.INVISIBLE);
+ //       ib_battery3.setVisibility(View.INVISIBLE);
+ //       ib_battery4.setVisibility(View.INVISIBLE);
+ //       ib_battery5.setVisibility(View.INVISIBLE);
     }
 
     private void ShowOnlySettting(){
@@ -791,8 +791,8 @@ V-03 = Truck
         rl_channel6.setVisibility(View.INVISIBLE);
         ll_seekbars.setVisibility(View.INVISIBLE);
         ib_battery0.setVisibility(View.INVISIBLE);
-        ib_battery3.setVisibility(View.INVISIBLE);
-        ib_battery5.setVisibility(View.INVISIBLE);
+ //       ib_battery3.setVisibility(View.INVISIBLE);
+ //       ib_battery5.setVisibility(View.INVISIBLE);
 
     }
 
@@ -898,6 +898,7 @@ V-03 = Truck
         HILog.d(TAG, "onDestroyView:");
         PolarbearMainActivity.mNotInFront = false;
         mEnable_Fps = false;
+        fps_NG.setVisibility(View.INVISIBLE);
         mFps = 0;
         mAliveTask = false;
         if (videoView!=null && videoView.isPlaying())
@@ -1387,6 +1388,7 @@ V-03 = Truck
                 break;
             case R.id.ib_queryhost:
                 mEnable_Fps = false;
+                fps_NG.setVisibility(View.INVISIBLE);
                 mFps = 0;
                 mQVGA = false;
 //                ipaddress = toycarGroupData.get(carno).get(CAR_IP);
@@ -1400,6 +1402,7 @@ V-03 = Truck
             case R.id.ibRecorder:
                 HILog.d(TAG, "onClick: ibRecorder: mEnable_Fps = " + mEnable_Fps);
                 mEnable_Fps = false;
+                fps_NG.setVisibility(View.INVISIBLE);
                 mFps = 0;
                 mQVGA = true;
 //                ipaddress = toycarGroupData.get(carno).get(CAR_IP);
@@ -1862,64 +1865,75 @@ V-03 = Truck
 
     private void Show_battery_flag(int battery_int)
     {
+        int battery_ssid = R.mipmap.battery_0;
         if (battery_int>4000)
         {
-            ib_battery0.setVisibility(View.INVISIBLE);
-            ib_battery1.setVisibility(View.INVISIBLE);
-            ib_battery2.setVisibility(View.INVISIBLE);
-            ib_battery3.setVisibility(View.INVISIBLE);
-            ib_battery4.setVisibility(View.INVISIBLE);
-            ib_battery5.setVisibility(View.VISIBLE);
+            battery_ssid = R.mipmap.battery_5;
+            ib_battery0.setVisibility(View.VISIBLE);
+  //          ib_battery1.setVisibility(View.INVISIBLE);
+  //          ib_battery2.setVisibility(View.INVISIBLE);
+  //          ib_battery3.setVisibility(View.INVISIBLE);
+  //          ib_battery4.setVisibility(View.INVISIBLE);
+  //          ib_battery5.setVisibility(View.INVISIBLE);
         }
         else if (battery_int>3900)
         {
-            ib_battery0.setVisibility(View.INVISIBLE);
-            ib_battery1.setVisibility(View.INVISIBLE);
-            ib_battery2.setVisibility(View.INVISIBLE);
-            ib_battery3.setVisibility(View.INVISIBLE);
-            ib_battery4.setVisibility(View.VISIBLE);
-            ib_battery5.setVisibility(View.INVISIBLE);
+            battery_ssid = R.mipmap.battery_4;
+            ib_battery0.setVisibility(View.VISIBLE);
+ //           ib_battery1.setVisibility(View.INVISIBLE);
+ //           ib_battery2.setVisibility(View.INVISIBLE);
+ //           ib_battery3.setVisibility(View.INVISIBLE);
+ //           ib_battery4.setVisibility(View.INVISIBLE);
+ //           ib_battery5.setVisibility(View.INVISIBLE);
         }
         else if (battery_int>3800)
         {
-            ib_battery0.setVisibility(View.INVISIBLE);
-            ib_battery1.setVisibility(View.INVISIBLE);
-            ib_battery2.setVisibility(View.INVISIBLE);
-            ib_battery3.setVisibility(View.VISIBLE);
-            ib_battery4.setVisibility(View.INVISIBLE);
-            ib_battery5.setVisibility(View.INVISIBLE);
+            battery_ssid = R.mipmap.battery_3;
+
+            ib_battery0.setVisibility(View.VISIBLE);
+//            ib_battery1.setVisibility(View.INVISIBLE);
+//            ib_battery3.setVisibility(View.INVISIBLE);
+//            ib_battery4.setVisibility(View.INVISIBLE);
+//            ib_battery5.setVisibility(View.INVISIBLE);
+
         }
         else if (battery_int>3700)
         {
-            ib_battery0.setVisibility(View.INVISIBLE);
-            ib_battery1.setVisibility(View.INVISIBLE);
-            ib_battery2.setVisibility(View.VISIBLE);
-            ib_battery3.setVisibility(View.INVISIBLE);
-            ib_battery4.setVisibility(View.INVISIBLE);
-            ib_battery5.setVisibility(View.INVISIBLE);
+            battery_ssid = R.mipmap.battery_2;
+
+            ib_battery0.setVisibility(View.VISIBLE);
+//            ib_battery1.setVisibility(View.INVISIBLE);
+//            ib_battery3.setVisibility(View.INVISIBLE);
+//            ib_battery4.setVisibility(View.INVISIBLE);
+//            ib_battery5.setVisibility(View.INVISIBLE);
 
         }
         else if (battery_int>3600)
         {
-            ib_battery0.setVisibility(View.INVISIBLE);
-            ib_battery1.setVisibility(View.VISIBLE);
-            ib_battery2.setVisibility(View.INVISIBLE);
-            ib_battery3.setVisibility(View.INVISIBLE);
-            ib_battery4.setVisibility(View.INVISIBLE);
-            ib_battery5.setVisibility(View.INVISIBLE);
+            battery_ssid = R.mipmap.battery_1;
+
+            ib_battery0.setVisibility(View.VISIBLE);
+ //           ib_battery1.setVisibility(View.INVISIBLE);
+  //          ib_battery2.setVisibility(View.INVISIBLE);
+  //          ib_battery3.setVisibility(View.INVISIBLE);
+  //          ib_battery4.setVisibility(View.INVISIBLE);
+  //          ib_battery5.setVisibility(View.INVISIBLE);
 
         }
         else
         {
+            battery_ssid = R.mipmap.battery_0;
+
             ib_battery0.setVisibility(View.VISIBLE);
-            ib_battery1.setVisibility(View.INVISIBLE);
-            ib_battery2.setVisibility(View.INVISIBLE);
-            ib_battery3.setVisibility(View.INVISIBLE);
-            ib_battery4.setVisibility(View.INVISIBLE);
-            ib_battery5.setVisibility(View.INVISIBLE);
+  //          ib_battery1.setVisibility(View.INVISIBLE);
+  //          ib_battery2.setVisibility(View.INVISIBLE);
+  //          ib_battery3.setVisibility(View.INVISIBLE);
+  //          ib_battery4.setVisibility(View.INVISIBLE);
+  //          ib_battery5.setVisibility(View.INVISIBLE);
 
         }
 
+        ib_battery0.setBackgroundResource(battery_ssid);
     }
 
     private void ShowOneCar(int id, ImageButton theCar){
@@ -2659,6 +2673,7 @@ V-03 = Truck
             videoView.setSource( result);
             videoView.start();
             mEnable_Fps = false;
+            fps_NG.setVisibility(View.INVISIBLE);
             videoView.showFps(mEnable_Fps);
         }
     }
