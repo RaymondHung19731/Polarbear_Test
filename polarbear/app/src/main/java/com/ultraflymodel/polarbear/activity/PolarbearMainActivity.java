@@ -575,8 +575,9 @@ public class PolarbearMainActivity extends BaseActivity implements View.OnClickL
                 byte[] byVideoDate = P2PNatProcess.get(byResponse, 4);
 
 //                now_fps = (byte[]) (P2PNatProcess.get(byResponse, 1032, 1));
-                now_fps = byVideoDate[1021];
+                now_fps = byVideoDate[1024];
                 if(( PolarbearMainFragment.videoView!=null) && (last_fps != now_fps))
+//                if(( PolarbearMainFragment.videoView!=null))
                 {
 //HILog.d(TAG, "success : P2PNatProcess.RECEIVE_VIDEO_DATA = " + iCommand  + ", iLen = " + iLen);
 

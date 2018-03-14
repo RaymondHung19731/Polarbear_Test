@@ -1107,7 +1107,7 @@ public class UDPNetwork
 				 check_fps_flag = 0;
 			 }
 
-			 if ((now_pack - last_pack) == 1)
+			 if (((now_pack - last_pack) == 1)  ||((now_pack == last_pack)))
 			 {
 				 correct_pack++;
 			 }
