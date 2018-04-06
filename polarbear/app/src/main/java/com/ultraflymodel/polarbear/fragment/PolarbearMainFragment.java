@@ -1863,9 +1863,138 @@ V-03 = Truck
         ShowOneCar(ibCar_5, true, 0);
     }
 
+    private int Battery_State = 5;
+    private int Battery_5_Hi =   3834;
+    private int Battery_5_Low = 3834;
+    private int Battery_4_Hi =   3792;
+    private int Battery_4_Low = 3782;
+    private int Battery_3_Hi =   3762;
+    private int Battery_3_Low = 3752;
+    private int Battery_2_Hi =   3740;
+    private int Battery_2_Low = 3730;
+    private int Battery_1_Hi =   3700;
+    private int Battery_1_Low = 3666;
+    private int Battery_0_Hi =   3600;
+    private int Battery_0_Low = 3522;
+
     private void Show_battery_flag(int battery_int)
     {
         int battery_ssid = R.mipmap.battery_0;
+
+        if (Battery_State == 5)
+        {
+            if (battery_int>Battery_5_Low)
+            {
+                battery_ssid = R.mipmap.battery_5;
+                Battery_State = 5;
+            }
+            else
+            {
+                battery_ssid = R.mipmap.battery_4;
+                Battery_State = 4;
+            }
+            ib_battery0.setVisibility(View.VISIBLE);
+        }
+        else if (Battery_State == 4)
+        {
+            if (battery_int > Battery_5_Hi)
+            {
+                battery_ssid = R.mipmap.battery_5;
+                Battery_State = 5;
+            }
+            else if  (battery_int> Battery_4_Low)
+            {
+                battery_ssid = R.mipmap.battery_4;
+                Battery_State = 4;
+            }
+            else
+            {
+                battery_ssid = R.mipmap.battery_3;
+                Battery_State = 3;
+            }
+            ib_battery0.setVisibility(View.VISIBLE);
+        }
+        else if (Battery_State == 3)
+        {
+            if (battery_int>Battery_4_Hi)
+            {
+                battery_ssid = R.mipmap.battery_4;
+                Battery_State = 4;
+            }
+            else if  (battery_int>Battery_3_Low)
+            {
+                battery_ssid = R.mipmap.battery_3;
+                Battery_State = 3;
+            }
+            else
+            {
+                battery_ssid = R.mipmap.battery_2;
+                Battery_State = 2;
+            }
+            ib_battery0.setVisibility(View.VISIBLE);
+        }
+        else if (Battery_State == 2)
+        {
+            if (battery_int>Battery_3_Hi)
+            {
+                battery_ssid = R.mipmap.battery_3;
+                Battery_State = 3;
+            }
+            else if  (battery_int>Battery_2_Low)
+            {
+                battery_ssid = R.mipmap.battery_2;
+                Battery_State = 2;
+            }
+            else
+            {
+                battery_ssid = R.mipmap.battery_1;
+                Battery_State = 1;
+            }
+            ib_battery0.setVisibility(View.VISIBLE);
+        }
+        else if (Battery_State == 1)
+        {
+            if (battery_int>Battery_2_Hi)
+            {
+                battery_ssid = R.mipmap.battery_2;
+                Battery_State = 2;
+            }
+            else if  (battery_int>Battery_1_Low)
+            {
+                battery_ssid = R.mipmap.battery_1;
+                Battery_State = 1;
+            }
+            else
+            {
+                battery_ssid = R.mipmap.battery_0;
+                Battery_State = 0;
+            }
+            ib_battery0.setVisibility(View.VISIBLE);
+        }
+
+        else if (Battery_State == 0)
+        {
+            if (battery_int>Battery_1_Hi)
+            {
+                battery_ssid = R.mipmap.battery_1;
+                Battery_State = 1;
+            }
+            else if  (battery_int>Battery_0_Low)
+            {
+                battery_ssid = R.mipmap.battery_0;
+                Battery_State = 0;
+            }
+            else
+            {
+                battery_ssid = R.mipmap.battery_0;
+                Battery_State = 0;
+            }
+            ib_battery0.setVisibility(View.VISIBLE);
+        }
+
+
+/*
+
         if (battery_int>4000)
         {
             battery_ssid = R.mipmap.battery_5;
@@ -1932,7 +2061,7 @@ V-03 = Truck
   //          ib_battery5.setVisibility(View.INVISIBLE);
 
         }
-
+*/
         ib_battery0.setBackgroundResource(battery_ssid);
     }
 
