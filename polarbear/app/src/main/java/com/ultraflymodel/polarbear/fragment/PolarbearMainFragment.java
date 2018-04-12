@@ -1863,6 +1863,8 @@ V-03 = Truck
         ShowOneCar(ibCar_5, true, 0);
     }
 
+    // Original data from Battery test data
+/*
     private int Battery_State = 5;
     private int Battery_5_Hi =   3834;
     private int Battery_5_Low = 3834;
@@ -1876,7 +1878,23 @@ V-03 = Truck
     private int Battery_1_Low = 3666;
     private int Battery_0_Hi =   3600;
     private int Battery_0_Low = 3522;
+*/
 
+// Tune data to minus 0.04 V  -40
+
+    private int Battery_State = 5;
+    private int Battery_5_Hi =   3794;
+    private int Battery_5_Low = 3794;
+    private int Battery_4_Hi =   3752;
+    private int Battery_4_Low = 3742;
+    private int Battery_3_Hi =   3722;
+    private int Battery_3_Low = 3712;
+    private int Battery_2_Hi =   3700;
+    private int Battery_2_Low = 3690;
+    private int Battery_1_Hi =   3660;
+    private int Battery_1_Low = 3626;
+    private int Battery_0_Hi =   3560;
+    private int Battery_0_Low = 3482;
     private void Show_battery_flag(int battery_int)
     {
         int battery_ssid = R.mipmap.battery_0;
