@@ -2763,6 +2763,7 @@ V-03 = Truck
                 videoView.stopPlayback();
                 videoView.setVisibility(View.GONE);
                 videoView = null;
+                m_udpNetwork.SaveBuff();
             }
             else
             {

@@ -3,6 +3,7 @@ package com.ultraflymodel.polarbear.mike;
 import android.content.Context;
 import android.net.DhcpInfo;
 import android.net.wifi.WifiManager;
+import android.os.Environment;
 import android.os.Looper;
 import android.os.ParcelFileDescriptor;
 import android.os.StrictMode;
@@ -13,14 +14,17 @@ import com.ultraflymodel.polarbear.R;
 import com.ultraflymodel.polarbear.activity.PolarbearMainActivity;
 import com.ultraflymodel.polarbear.common.DBA;
 import com.ultraflymodel.polarbear.common.HILog;
+import com.ultraflymodel.polarbear.eventbus.CustomCircularBuffer;
 import com.ultraflymodel.polarbear.eventbus.WifiUdpEvent;
 import com.ultraflymodel.polarbear.fragment.PolarbearMainFragment;
 import com.ultraflymodel.polarbear.fragment.ScanWifiListFragment;
 import com.ultraflymodel.polarbear.ultraflymodel.UltraflyModelApplication;
 import com.ultraflymodel.polarbear.utils.CommonUtils;
 
+import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.DatagramPacket;
@@ -28,6 +32,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
@@ -493,6 +498,15 @@ public class UDPNetwork
 			for (n=0; n<100;n++) {;}
 		}
 	}
+
+	public  void SaveBuff()
+	{
+		String filename ="Data_" + PolarbearMainFragment.UserGetTime();
+		String filecontent = "Hello world!\r\n";
+		FileOperations fop = new FileOperations();
+		fop.write(filename, filecontent);
+	}
+
 
 	public  void SendVideoOff()
 	{
@@ -1045,8 +1059,8 @@ public class UDPNetwork
 
 	public int now_frame = 0;
 	public int last_frame = 0;
-	public short now_pack = 0;
-	public short last_pack = 0;
+	public long now_pack = 0;
+	public long last_pack = 0;
 
 	public long correct_pack = 0;
 	public long wrong_pack = 0;
@@ -1054,6 +1068,14 @@ public class UDPNetwork
 	public int correct_fps = 0;
 	public int wrong_fps = 0;
     public int check_fps_flag = 0;
+
+	public long now_time = 0;
+
+	public static CustomCircularBuffer Buffer_fps = new CustomCircularBuffer(2000);
+	public static CustomCircularBuffer Buffer_pps = new CustomCircularBuffer(2000);
+	public static CustomCircularBuffer Buffer_mTime = new CustomCircularBuffer(2000);
+    public static int Buffer_save_flag = 1;
+
 
 	void ProcessCommand(byte[]  byData, int iLen , String LocalPort)
 	 {
@@ -1087,9 +1109,16 @@ public class UDPNetwork
              PolarbearMainFragment.UserMilliTimeInterval();
 //			 SendVideoAck(byData[1028], byData[1029], byData[1030]);
              now_frame = (short) (byData[1030] & 0xFF);
-			 now_pack = (short) (byData[1028] & 0xFF);
-			 now_pack += (short) ((byData[1029] & 0xFF) * 256);
+			 now_pack = (long) (byData[1028] & 0xFF);
+			 now_pack += (long) ((byData[1029] & 0xFF) * 256);
+             now_time = PolarbearMainFragment.UserGetTime();
 
+             if (Buffer_save_flag == 1)
+             {
+				 Buffer_fps.add(now_frame);
+				 Buffer_pps.add(now_pack);
+				 Buffer_mTime.add(now_time);
+			 }
 
              if (now_frame != last_frame )
              {

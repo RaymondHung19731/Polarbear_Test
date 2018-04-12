@@ -1,4 +1,10 @@
-2018-04-06
+2018-04-12
+Version 4.0.4
+1. 依照版本  4.0.3 修改
+2. 增加影像播放時，有 2000筆 ring buffer 存
+   每1k 影像收到時，手機的 mili second, 收到的 fps, pps 編號
+   當按下 camera off 時，便將資料存在手機裡面
+
 Version: 4.0.3
 Continuous use the same version, add battery icon in projet
 
