@@ -297,7 +297,13 @@
                         android:layout_height="match_parent"
                         android:layout_width="0dp"
                         android:layout_weight="13"/>
-
+                    <ImageButton
+                        android:id="@+id/ibPower"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="78"
+                        android:background="@mipmap/btn_t1"
+                        />
                     <ImageButton
                         android:id="@+id/ib_battery0"
                         android:layout_height="match_parent"

@@ -133,7 +133,9 @@ public class PolarbearMainFragment extends Fragment implements View.OnClickListe
     public static long Video_ON_02;
     public static long Video_ON_interval;
     public static int GetVideo_flag=0;
-
+    public static int command_state = 1;
+    public static double command_ratio=0.7;
+    public static int command_offset = 1150;
 
 
     public Handler m_CountDownHandler = new Handler();
@@ -243,6 +245,7 @@ public class PolarbearMainFragment extends Fragment implements View.OnClickListe
     private ImageButton ib_demomode, ib_fireshot_demo;
     private ImageButton ibRecorder;
     private ImageButton ibLife;
+    private ImageButton ibPower;
     private LinearLayout ll_hp;
     private TextView tv_hp, tv_winner;
     private TextView fps_OK, fps_NG;
@@ -413,6 +416,8 @@ V-03 = Truck
         ibRecorder.setOnClickListener(this);
         ibLife = (ImageButton) mainview.findViewById(R.id.ibLife);
         ibLife.setOnClickListener(this);
+        ibPower = (ImageButton) mainview.findViewById(R.id.ibPower);
+        ibPower.setOnClickListener(this);
         ll_hp = (LinearLayout) mainview.findViewById(R.id.ll_hp);
         tv_hp = (TextView) mainview.findViewById(R.id.tv_hp);
         tv_winner = (TextView) mainview.findViewById(R.id.tv_winner);
@@ -453,7 +458,7 @@ V-03 = Truck
                 if (event.getAction() == MotionEvent.ACTION_DOWN )
                 {
                     HILog.d(TAG, "ibLeft: ACTION_DOWN:");
-                    m_iWheel6 = 1000;
+                    m_iWheel6 = command_offset;   // 1000
                     ibLeft.setBackgroundResource(R.mipmap.btn_left_h);
                     return true;
                 }else if(event.getAction() == MotionEvent.ACTION_UP)
@@ -474,7 +479,7 @@ V-03 = Truck
                 if (event.getAction() == MotionEvent.ACTION_DOWN )
                 {
                     HILog.d(TAG, "ibRight: ACTION_DOWN:");
-                    m_iWheel6 = 2000;
+                    m_iWheel6 = 3000 - command_offset;  // 2000
                     ibRight.setBackgroundResource(R.mipmap.btn_right_h);
                     return true;
                 }else if(event.getAction() == MotionEvent.ACTION_UP)
@@ -661,6 +666,7 @@ V-03 = Truck
         rl_ch4.setVisibility(View.INVISIBLE);
         rl_ch5.setVisibility(View.INVISIBLE);
         ib_battery0.setVisibility(View.INVISIBLE);
+        ibPower.setVisibility(View.INVISIBLE); //ib_queryhost
   //      ib_battery1.setVisibility(View.INVISIBLE);
   //      ib_battery2.setVisibility(View.INVISIBLE);
   //      ib_battery3.setVisibility(View.INVISIBLE);
@@ -697,7 +703,8 @@ V-03 = Truck
                 rl_ch3.setVisibility(View.INVISIBLE);
                 rl_ch4.setVisibility(View.INVISIBLE);
                 rl_ch5.setVisibility(View.INVISIBLE);
-                ib_battery0.setVisibility(View.INVISIBLE);
+                ib_battery0.setVisibility(View.VISIBLE);
+                ibPower.setVisibility(View.VISIBLE); //ib_queryhost
    //             ib_battery1.setVisibility(View.INVISIBLE);
    //             ib_battery2.setVisibility(View.INVISIBLE);
     //            ib_battery3.setVisibility(View.INVISIBLE);
@@ -722,7 +729,8 @@ V-03 = Truck
                 ll_hitpoint.setVisibility(View.INVISIBLE);
                 rl_channel6.setVisibility(View.VISIBLE);
                 ll_seekbars.setVisibility(View.VISIBLE);
-                ib_battery0.setVisibility(View.INVISIBLE);
+                ib_battery0.setVisibility(View.VISIBLE);
+                ibPower.setVisibility(View.VISIBLE); //ib_queryhost
    //             ib_battery1.setVisibility(View.INVISIBLE);
    //             ib_battery2.setVisibility(View.INVISIBLE);
    //             ib_battery3.setVisibility(View.INVISIBLE);
@@ -766,7 +774,8 @@ V-03 = Truck
         rl_ch3.setVisibility(View.INVISIBLE);
         rl_ch4.setVisibility(View.INVISIBLE);
         rl_ch5.setVisibility(View.INVISIBLE);
-        ib_battery0.setVisibility(View.INVISIBLE);
+        ib_battery0.setVisibility(View.VISIBLE);
+        ibPower.setVisibility(View.VISIBLE); //ib_queryhost
 //        ib_battery1.setVisibility(View.INVISIBLE);
  //       ib_battery2.setVisibility(View.INVISIBLE);
  //       ib_battery3.setVisibility(View.INVISIBLE);
@@ -791,6 +800,7 @@ V-03 = Truck
         rl_channel6.setVisibility(View.INVISIBLE);
         ll_seekbars.setVisibility(View.INVISIBLE);
         ib_battery0.setVisibility(View.INVISIBLE);
+        ibPower.setVisibility(View.INVISIBLE); //ib_queryhost
  //       ib_battery3.setVisibility(View.INVISIBLE);
  //       ib_battery5.setVisibility(View.INVISIBLE);
 
@@ -1386,6 +1396,32 @@ V-03 = Truck
                 HILog.d(TAG, "onClick: ibLife:");
                 dialog_broadcasting();
                 break;
+
+            case R.id.ibPower:
+
+                if (command_state == 1)
+                {
+                    command_state = 2;
+                }
+                else if (command_state == 2)
+                {
+                    command_state = 3;
+                }
+                else if (command_state == 3)
+                {
+                    command_state = 4;
+                }
+                else if (command_state == 4)
+                {
+                    command_state = 1;
+                }
+                else
+                {
+                    command_state = 1;
+                }
+                HILog.d(TAG, "onClick: ibPower: change command to " + command_state );
+                Show_command_flag();
+                break;
             case R.id.ib_queryhost:
                 mEnable_Fps = false;
                 fps_NG.setVisibility(View.INVISIBLE);
@@ -1864,7 +1900,7 @@ V-03 = Truck
     }
 
     // Original data from Battery test data
-/*
+
     private int Battery_State = 5;
     private int Battery_5_Hi =   3834;
     private int Battery_5_Low = 3834;
@@ -1878,10 +1914,10 @@ V-03 = Truck
     private int Battery_1_Low = 3666;
     private int Battery_0_Hi =   3600;
     private int Battery_0_Low = 3522;
-*/
+
 
 // Tune data to minus 0.04 V  -40
-
+/*
     private int Battery_State = 5;
     private int Battery_5_Hi =   3794;
     private int Battery_5_Low = 3794;
@@ -1895,6 +1931,7 @@ V-03 = Truck
     private int Battery_1_Low = 3626;
     private int Battery_0_Hi =   3560;
     private int Battery_0_Low = 3482;
+  */
     private void Show_battery_flag(int battery_int)
     {
         int battery_ssid = R.mipmap.battery_0;
@@ -2011,6 +2048,46 @@ V-03 = Truck
 
         ib_battery0.setVisibility(View.VISIBLE);
         ib_battery0.setBackgroundResource(battery_ssid);
+    }
+
+    private void Show_command_flag()
+    {
+        int command_icon = R.mipmap.btn_t1;
+
+        if (command_state == 1)
+        {
+            // 70%
+            command_icon = R.mipmap.btn_t1;
+            command_ratio = 0.7;
+            command_offset = 1150;
+        }
+        else if (command_state == 2)
+        {
+            // 80%
+            command_icon = R.mipmap.btn_t2;
+            command_ratio = 0.8;
+            command_offset = 1100;
+
+        }
+        else if (command_state == 3)
+        {
+            // 90%
+            command_icon = R.mipmap.btn_t3;
+            command_ratio = 0.9;
+            command_offset = 1050;
+
+        }
+        else if (command_state == 4)
+        {
+            //100%
+            command_icon = R.mipmap.btn_t4;
+            command_ratio = 1;
+            command_offset = 1000;
+
+        }
+
+        ibPower.setVisibility(View.VISIBLE);
+        ibPower.setBackgroundResource(command_icon);
     }
 
 /*
@@ -2658,29 +2735,36 @@ V-03 = Truck
     }
 
     @Override
+
+
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         switch(seekBar.getId())
         {
             case  R.id.seekBarLeft: //ToDo: channel_1
                 HILog.d(TAG, "seekBarLeft:");
-                m_iWheel = progress + 1000;
+//                m_iWheel = progress + 1000;
+                m_iWheel = (int)(progress * command_ratio) + command_offset;
                 break;
             case  R.id.seekBarRight: //ToDo: channel_2
                 HILog.d(TAG, "seekBarRight:");
-                m_iWheel2 = progress + 1000;
+ //               m_iWheel2 = progress + 1000;
+                m_iWheel2 = (int)(progress * command_ratio) + command_offset;
                 break;
 
             case  R.id.seekBar_ch4: ////ToDo: channel_4
                 HILog.d(TAG, "seekBar_ch4:");
-                m_iWheel3 = progress + 1000;
+ //               m_iWheel3 = progress + 1000;
+                m_iWheel3 = (int)(progress * command_ratio) + command_offset;
                 break;
             case  R.id.seekBar_ch5://ToDo: channel_5
                 HILog.d(TAG, "seekBar_ch5:");
-                m_iWheel4 = progress + 1000;
+ //               m_iWheel4 = progress + 1000;
+                m_iWheel4 = (int)(progress * command_ratio) + command_offset;
                 break;
             case  R.id.seekBar_ch3: //ToDo: channel_3
                 HILog.d(TAG, "seekBar_ch3:");
-                m_iWheel5 = progress + 1000;
+ //               m_iWheel5 = progress + 1000;
+                m_iWheel5 = (int)(progress * command_ratio) + command_offset;
                 break;
 
         }
