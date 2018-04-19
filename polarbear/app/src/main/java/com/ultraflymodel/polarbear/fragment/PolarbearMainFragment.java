@@ -133,9 +133,9 @@ public class PolarbearMainFragment extends Fragment implements View.OnClickListe
     public static long Video_ON_02;
     public static long Video_ON_interval;
     public static int GetVideo_flag=0;
-    public static int command_state = 1;
-    public static double command_ratio=0.7;
-    public static int command_offset = 1150;
+    public static int command_state = 6;
+    public static double command_ratio=0.6;
+    public static int command_offset = 1300;
 
 
     public Handler m_CountDownHandler = new Handler();
@@ -458,7 +458,7 @@ V-03 = Truck
                 if (event.getAction() == MotionEvent.ACTION_DOWN )
                 {
                     HILog.d(TAG, "ibLeft: ACTION_DOWN:");
-                    m_iWheel6 = command_offset;   // 1000
+                    m_iWheel6 = 1300;  // to 40%  // command_offset + 100;   // 1000
                     ibLeft.setBackgroundResource(R.mipmap.btn_left_h);
                     return true;
                 }else if(event.getAction() == MotionEvent.ACTION_UP)
@@ -479,7 +479,7 @@ V-03 = Truck
                 if (event.getAction() == MotionEvent.ACTION_DOWN )
                 {
                     HILog.d(TAG, "ibRight: ACTION_DOWN:");
-                    m_iWheel6 = 3000 - command_offset;  // 2000
+                    m_iWheel6 = 1700;  // 40%   //3000 - command_offset - 100;  // 2000
                     ibRight.setBackgroundResource(R.mipmap.btn_right_h);
                     return true;
                 }else if(event.getAction() == MotionEvent.ACTION_UP)
@@ -1399,25 +1399,33 @@ V-03 = Truck
 
             case R.id.ibPower:
 
-                if (command_state == 1)
+                if (command_state == 5)
                 {
-                    command_state = 2;
+                    command_state = 6;
                 }
-                else if (command_state == 2)
+                else if (command_state == 6)
                 {
-                    command_state = 3;
+                    command_state = 7;
                 }
-                else if (command_state == 3)
+                else if (command_state == 7)
                 {
-                    command_state = 4;
+                    command_state = 8;
                 }
-                else if (command_state == 4)
+                else if (command_state == 8)
                 {
-                    command_state = 1;
+                    command_state = 9;
+                }
+                else if (command_state == 9)
+                {
+                    command_state = 10;
+                }
+                else if (command_state == 10)
+                {
+                    command_state = 5;
                 }
                 else
                 {
-                    command_state = 1;
+                    command_state = 5;
                 }
                 HILog.d(TAG, "onClick: ibPower: change command to " + command_state );
                 Show_command_flag();
@@ -2056,34 +2064,83 @@ V-03 = Truck
 
         if (command_state == 1)
         {
-            // 70%
+            // 10%
             command_icon = R.mipmap.btn_t1;
-            command_ratio = 0.7;
-            command_offset = 1150;
+            command_ratio = 0.1;
+            command_offset = 1450;
         }
         else if (command_state == 2)
         {
-            // 80%
+            // 20%
             command_icon = R.mipmap.btn_t2;
-            command_ratio = 0.8;
-            command_offset = 1100;
+            command_ratio = 0.2;
+            command_offset = 1400;
 
         }
         else if (command_state == 3)
         {
-            // 90%
+            // 30%
             command_icon = R.mipmap.btn_t3;
-            command_ratio = 0.9;
-            command_offset = 1050;
+            command_ratio = 0.3;
+            command_offset = 1350;
 
         }
         else if (command_state == 4)
         {
-            //100%
+            //40%
             command_icon = R.mipmap.btn_t4;
+            command_ratio = 0.4;
+            command_offset = 1300;
+
+        }
+        else if (command_state == 5)
+        {
+            //50%
+            command_icon = R.mipmap.btn_t5;
+            command_ratio = 0.5;
+            command_offset = 1250;
+        }
+        else if (command_state == 5)
+        {
+            //50%
+            command_icon = R.mipmap.btn_t5;
+            command_ratio = 0.5;
+            command_offset = 1250;
+        }
+        else if (command_state == 6)
+        {
+            //60%
+            command_icon = R.mipmap.btn_t6;
+            command_ratio = 0.6;
+            command_offset = 1200;
+        }
+        else if (command_state == 7)
+        {
+            //70%
+            command_icon = R.mipmap.btn_t7;
+            command_ratio = 0.7;
+            command_offset = 1150;
+        }
+        else if (command_state == 8)
+        {
+            //80%
+            command_icon = R.mipmap.btn_t8;
+            command_ratio = 0.8;
+            command_offset = 1100;
+        }
+        else if (command_state == 9)
+        {
+            //90%
+            command_icon = R.mipmap.btn_t9;
+            command_ratio = 0.9;
+            command_offset = 1050;
+        }
+        else if (command_state == 10)
+        {
+            //80%
+            command_icon = R.mipmap.btn_t10;
             command_ratio = 1;
             command_offset = 1000;
-
         }
 
         ibPower.setVisibility(View.VISIBLE);

@@ -302,7 +302,7 @@
                         android:layout_height="match_parent"
                         android:layout_width="0dp"
                         android:layout_weight="78"
-                        android:background="@mipmap/btn_t1"
+                        android:background="@mipmap/btn_t6"
                         />
                     <ImageButton
                         android:id="@+id/ib_battery0"
